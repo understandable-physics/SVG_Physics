@@ -146,27 +146,25 @@ valueX.attr({ y: center.x - point3d.x - 10}).transform(`rotate(-90 305 ${center.
 valueY.attr({ y: center.y - point3d.y  })
 valueZ.attr({ y: center.y - point3d.z - valueZ.getBBox().height }).transform(`rotate(90 305 ${center.y - point3d.z - valueZ.getBBox().height})`)
 
-/* var move = function (el, dx, dy, mx, my, ev) {
-    console.log('move ', el, dx, dy, mx, my)
-    //console.log(this.getBBox().x, dx, this.attr('y'))
+var move = function (dx, dy, mx, my, ev) {
+    console.log('move ', dx, dy, mx, my, ev)
     if (this.attr('data-orientation') == 'horizontal') {
         //if (center.x < this.getBBox().x && this.getBBox().x < center.x + 250) {
-            this.node.innerHTML = this.getBBox().x + dx - this.attr('y') //point3d.x + dx
+            this.node.innerHTML = this.getBBox().x + dx - this.attr('y');
             this.attr({
                 transform: this.data('origTransform') + (this.data('origTransform') ? "T" : "t") + dx
-                //x: dx
             });
         //}
     } else {
         if (0 < center.y - my && center.y - my < 250) {
             this.node.innerHTML = center.y - my
             this.attr({
-                //transform: this.data('origTransform') + (this.data('origTransform') ? "T0 " : "t0 ") + dy
-                y: my
+                transform: this.data('origTransform') + (this.data('origTransform') ? "T0 " : "t0 ") + dy
+                //y: my
             });
         }
     }
-} */
+}
 
 var start = function (x, y, ev) {
     this.data('origTransform', this.transform().local);
