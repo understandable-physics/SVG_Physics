@@ -19,7 +19,8 @@
     </style>
 
     <link href="css/style.css" type="text/css">
-    <script src="js/snap.svg-min_v0.5.0.js"></script>
+    <script src='js/svg.js'></script>
+    <script src='js/svg.draggable.js'></script>
 </head>
 
 <body>
@@ -76,13 +77,11 @@
                 <path id="planeZ" d="m300 300-225.17 130v-260l225.17-130z" fill="#f00" filter="url(#filter5777)"
                     opacity=".5" />
             </g>
-            <g id="gCordinates">
+            <g id="gCordinates" >
                 <g stroke="#000" stroke-dasharray="3, 3">
-                    <line id="coordinateX_0" transform="translate(-86.6 50) rotate(120 300 300)" x1="300" x2="300"
-                        y1="300" y2="70" fill="url(#radialGradient6544)" />
+                    <line id="coordinateX_0" transform="translate(-86.6 50) rotate(120 300 300)" x1="300" x2="300" y1="300" y2="70" />
                     <line id="coordinateY_0" transform="translate(112 165)" x1="300" x2="300" y1="300" y2="100" />
-                    <line id="coordinateZ_0" transform="translate(199.2 115) rotate(240 300 300)" x1="300" x2="300"
-                        y1="300" y2="200" />
+                    <line id="coordinateZ_0" transform="translate(199.2 115) rotate(240 300 300)" x1="300" x2="300" y1="300" y2="200" />
                 </g>
                 <g id="whiteСoordinates" stroke="#fff" stroke-width="1.5">
                     <line id="coordinateZ_1" transform="translate(199.2 -85) rotate(240 300 300)" x1="300" x2="300"
@@ -98,10 +97,9 @@
                 </g>
             </g>
             <line id="radiusVector" x1="300" x2="412" y1="300" y2="265" fill="none" marker-end="url(#Arrow2)"
-                stroke="#000" stroke-width="2" />
+                stroke="#00f" stroke-width="2"/>
             <g id="gProjections" stroke="#f00" stroke-width="2">
                 <g id="projectionX">
-                    <!-- <text id="valueX" x="505" y="410" fill="#000000" font-family="sans-serif" font-size="16px" stroke="none" stroke-width="2" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve">230</text> -->
                     <g id="gVectorX" transform="rotate(120 300 300)">
                         <text id="valueX" x="300" y="65" transform="rotate(-90 300 70)" class="button"
                             data-orientation="horizontal" fill="#000000" font-family="sans-serif" font-size="16px"
@@ -110,24 +108,18 @@
                             xml:space="preserve">230</text>
                         <line id="vectorX" x1="300" x2="300" y1="300" y2="70" marker-end="url(#TriangleStart)"
                             stroke="#f00" />
-                        <line id="markerX" x1="297" x2="303" y1="70" y2="70" fill="none" stroke="#000"
-                            stroke-width="2" />
                     </g>
                 </g>
                 <g id="projectionY">
-                    <!-- <text id="valueY" x="310" y="101" fill="#000000" font-family="sans-serif" font-size="16px" stroke="none" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve">200</text> -->
                     <g id="gVectorY">
                         <text id="valueY" x="305" y="100" data-orientation="vertical" class="button" fill="#000000"
                             font-family="sans-serif" font-size="16px" stroke="none"
                             style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25"
                             xml:space="preserve">200</text>
                         <line id="vectorY" x1="300" x2="300" y1="300" y2="100" marker-end="url(#TriangleStart)" />
-                        <line id="markerY" x1="297" x2="303" y1="100" y2="100" fill="none" stroke="#000"
-                            stroke-width="2" />
                     </g>
                 </g>
                 <g id="projectionZ">
-                    <!-- <text id="valueZ" x="180" y="350" fill="#000000" font-family="sans-serif" font-size="16px" stroke="none" stroke-width="2" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve">100</text> -->
                     <g id="gVectorZ" transform="rotate(240 300 300)">
                         <text id="valueZ" x="305" y="170" transform="rotate(90 305 170)" class="button"
                             data-orientation="horizontal" fill="#000000" font-family="sans-serif" font-size="16px"
@@ -135,13 +127,10 @@
                             style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25"
                             xml:space="preserve">100</text>
                         <line id="vectorZ" x1="300" x2="300" y1="300" y2="200" marker-end="url(#TriangleStart)" />
-                        <line id="markerZ" x1="297" x2="303" y1="200" y2="200" fill="none" stroke="#000"
-                            stroke-width="2" />
                     </g>
                 </g>
             </g>
             <g id="gPointA">
-                <!-- url(#radialGradient6580) -->
                 <circle id="pointA" cx="412" cy="265" r="5" fill="red" stroke="#000" />
                 <text id="pointText" x="420" y="260" fill="#000000" font-family="sans-serif" font-size="26.667px"
                     style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25"
@@ -170,8 +159,6 @@
             </g>
         </g>
     </svg>
-
-
     <script src="js/script.js"></script>
 </body>
 

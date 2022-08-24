@@ -1,77 +1,143 @@
 // Координаты центра
 var center = { x: 300, y: 300 },
-    point3d = { x: 230, y: 200, z: 100 };
+    vPoint = { x: 230, y: 200, z: 100 };
 
+
+// Перевод градусов в радианы
 function rad(angle) {
     return angle * Math.PI / 180;
 }
 
-// Перевод градусов в радианы rad(45)
-var correctionAngle = 90,
-    angleX = correctionAngle + 30,
-    angleY = 0,
-    angleZ = correctionAngle + 150;
+var s = SVG('#Kinemat_1v_1')
+var gAxis = SVG('#gAxis')
 
-var s = Snap.select('#Kinemat_1v_1');
+var radiusVector = SVG('#radiusVector'),
+    gPointA = SVG('#gPointA'),
+    pointA = SVG('#pointA'),
+    pointText = SVG('#pointText');
 
-var radiusVector = s.select('#radiusVector'),
-    gPointA = s.select('#gPointA'),
-    pointA = s.select('#pointA')
-pointText = s.select('#pointText');
+var vectorX = SVG('#vectorX'),
+    valueX = SVG('#valueX'),
+    vectorY = SVG('#vectorY'),
+    valueY = SVG('#valueY'),
+    vectorZ = SVG('#vectorZ'),
+    valueZ = SVG('#valueZ');
 
-var vectorX = s.select('#vectorX'),
-    markerX = s.select('#markerX'),
-    valueX = s.select('#valueX'),
-    vectorY = s.select('#vectorY'),
-    markerY = s.select('#markerY'),
-    valueY = s.select('#valueY'),
-    vectorZ = s.select('#vectorZ'),
-    markerZ = s.select('#markerZ'),
-    valueZ = s.select('#valueZ');
+var gProjections = SVG('#gProjections'),
+    gProjectionX = SVG('#gProjectionX'),
+    gProjectionY = SVG('#gProjectionY'),
+    gProjectionZ = SVG('#gProjectionZ'),
+    projectionX = SVG('#projectionX'),
+    projectionY = SVG('#projectionY'),
+    projectionZ = SVG('#projectionZ');
 
-var gProjections = s.select('#gProjections'),
-    gProjectionX = s.select('#gProjectionX'),
-    gProjectionY = s.select('#gProjectionY'),
-    gProjectionZ = s.select('#gProjectionZ'),
-    projectionX = s.select('#projectionX'),
-    projectionY = s.select('#projectionY'),
-    projectionZ = s.select('#projectionZ');
+var gCordinates = SVG('#gCordinates'),
+    coordinateX_0 = SVG('#coordinateX_0'),
+    coordinateY_0 = SVG('#coordinateY_0'),
+    coordinateZ_0 = SVG('#coordinateZ_0'),
+    coordinateX_1 = SVG('#coordinateX_1'),
+    coordinateX_2 = SVG('#coordinateX_2'),
+    coordinateY_1 = SVG('#coordinateY_1'),
+    coordinateY_2 = SVG('#coordinateY_2'),
+    coordinateZ_1 = SVG('#coordinateZ_1'),
+    coordinateZ_2 = SVG('#coordinateZ_2');
 
-var coordinateX_0 = s.select('#coordinateX_0'),
-    coordinateY_0 = s.select('#coordinateY_0'),
-    coordinateZ_0 = s.select('#coordinateZ_0');
+var button1 = SVG('#button1'),
+    button2 = SVG('#button2'),
+    button3 = SVG('#button3'),
+    textButton1 = SVG('#textButton1'),
+    textButton2 = SVG('#textButton2'),
+    textButton3 = SVG('#textButton3');
 
-var gCordinates = s.select('#gCordinates'),
-    coordinateX_1 = s.select('#coordinateX_1'),
-    coordinateX_2 = s.select('#coordinateX_2'),
-    coordinateY_1 = s.select('#coordinateY_1'),
-    coordinateY_2 = s.select('#coordinateY_2'),
-    coordinateZ_1 = s.select('#coordinateZ_1'),
-    coordinateZ_2 = s.select('#coordinateZ_2');
+function calculateСoordinates(point) {
+    // Расчет проекций на оси
+    vectorX.attr({ y2: center.y - point.x });
+    vectorY.attr({ y2: center.y - point.y });
+    vectorZ.attr({ y2: center.y - point.z });
 
-var button1 = s.select('#button1'),
-    button2 = s.select('#button2'),
-    button3 = s.select('#button3'),
-    textButton1 = s.select('#textButton1'),
-    textButton2 = s.select('#textButton2'),
-    textButton3 = s.select('#textButton3');
+    coordinateX_0.attr({ y2: center.y - point.x });
+    coordinateX_1.attr({ y2: center.y - point.x });
+    coordinateX_2.attr({ y2: center.y - point.x });
+    coordinateY_0.attr({ y2: center.y - point.y });
+    coordinateY_1.attr({ y2: center.y - point.y });
+    coordinateY_2.attr({ y2: center.y - point.y });
+    coordinateZ_0.attr({ y2: center.y - point.z });
+    coordinateZ_1.attr({ y2: center.y - point.z });
+    coordinateZ_2.attr({ y2: center.y - point.z });
 
-var hide_gWhitecoordinates = function () {
-    coordinateX_1.attr({ visibility: 'hidden' });
-    coordinateX_2.attr({ visibility: 'hidden' });
-    coordinateY_1.attr({ visibility: 'hidden' });
-    coordinateY_2.attr({ visibility: 'hidden' });
-    coordinateZ_1.attr({ visibility: 'hidden' });
-    coordinateZ_2.attr({ visibility: 'hidden' });
+    // Вычислить смещение координат 
+    var tX = {
+        x: Math.cos(rad(30)) * point.x,
+        y: Math.sin(rad(30)) * point.x
+    };
+    console.log()
+    var tY = {
+        x: Math.cos(rad(0)) * point.y,
+        y: Math.sin(rad(0)) * point.y
+    };
+    var tZ = {
+        x: Math.cos(rad(150)) * point.z,
+        y: Math.sin(rad(150)) * point.z
+    };
+    // Перерисовать линии проекций по новым координатам
+    coordinateX_0.transform({
+        translateX: tZ.x,
+        translateY: tZ.y
+    }).rotate(120, 300, 300)
+    coordinateX_1.transform({
+        translateX: tZ.x,
+        translateY: tZ.y - point.y
+    }).rotate(120, 300, 300);
+    coordinateX_2.transform({
+        translateX: 0,
+        translateY: -point.y
+    }).rotate(120, 300, 300)
+    coordinateY_0.transform({
+        translateX: tZ.x + tX.x,
+        translateY: tZ.y + tX.y
+    })
+    coordinateY_1.transform({
+        translateX: tZ.x,
+        translateY: tZ.y
+    })
+    coordinateY_2.transform({
+        translateX: tX.x,
+        translateY: tX.y
+    })
+    coordinateZ_0.transform({
+        translateX: tX.x,
+        translateY: tX.y
+    }).rotate(240, 300, 300)
+    coordinateZ_1.transform({
+        translateX: tX.x,
+        translateY: tX.y - point.y
+    }).rotate(240, 300, 300)
+    coordinateZ_2.transform({
+        translateX: 0,
+        translateY: -point.y
+    }).rotate(240, 300, 300)
+
+    // Переместить точку А и надпись
+    pointA.cx(center.x + tZ.x + tX.x);
+    pointA.cy(center.y + tZ.y + tX.y - point.y);
+
+    pointText.x(center.x + tZ.x + tX.x + 5);
+    pointText.y(center.y + tZ.y + tX.y - point.y - 30);
+
+    // Провести вектор к новой точке
+    radiusVector.attr({
+        x2: center.x + tZ.x + tX.x,
+        y2: center.y + tZ.y + tX.y - point.y
+    });
 }
 // Функция изменения видимости объектов
 function toggle_visibility(el, txtBtn) {
-    if (el.attr('visibility') === 'visible') {
-        el.attr({ visibility: 'hidden' });
-        txtBtn.attr({ fill: '#c0c0c0' });
+    if (el.visible()) {
+        el.hide();
+        txtBtn.fill('#c0c0c0');
     } else {
-        el.attr({ visibility: 'visible' });
-        txtBtn.attr({ fill: '#000000' });
+        el.show();
+        txtBtn.fill('#000000');
     }
 }
 // Обработка нажатия кнопок
@@ -79,102 +145,53 @@ button1.click(function () { toggle_visibility(radiusVector, textButton1) });
 button2.click(function () { toggle_visibility(gCordinates, textButton2) });
 button3.click(function () { toggle_visibility(gProjections, textButton3) });
 
-// Расчет проекций на оси
-vectorX.attr({ y2: center.y - point3d.x });
-vectorY.attr({ y2: center.y - point3d.y });
-vectorZ.attr({ y2: center.y - point3d.z });
-
-coordinateX_0.attr({ y2: center.y - point3d.x });
-coordinateX_1.attr({ y2: center.y - point3d.x });
-coordinateX_2.attr({ y2: center.y - point3d.x });
-coordinateY_0.attr({ y2: center.y - point3d.y });
-coordinateY_1.attr({ y2: center.y - point3d.y });
-coordinateY_2.attr({ y2: center.y - point3d.y });
-coordinateZ_0.attr({ y2: center.y - point3d.z });
-coordinateZ_1.attr({ y2: center.y - point3d.z });
-coordinateZ_2.attr({ y2: center.y - point3d.z });
-// Изменить значения по осям
-valueX.node.innerHTML = point3d.x;
-valueY.node.innerHTML = point3d.y;
-valueZ.node.innerHTML = point3d.z;
-// Вычислить смещение координат 
-var translateX = {
-    x: Math.cos(rad(30)) * point3d.x,
-    y: Math.sin(rad(30)) * point3d.x
-};
-var translateY = {
-    x: Math.cos(rad(0)) * point3d.y,
-    y: Math.sin(rad(0)) * point3d.y
-};
-var translateZ = {
-    x: Math.cos(rad(150)) * point3d.z,
-    y: Math.sin(rad(150)) * point3d.z
-};
-// Перерисовать линии проекций по новым координатам
-coordinateX_0.transform(`tanslate(${translateZ.x}, ${translateZ.y}) rotate(120, 300, 300)`);
-coordinateX_1.transform(`translate(${translateZ.x}, ${translateZ.y - point3d.y}) rotate(120, 300, 300)`);
-coordinateX_2.transform(`translate(${0}, ${-point3d.y}) rotate(120, 300, 300)`);
-coordinateY_0.transform(`tanslate(${coordinateX_0.getBBox().x2 - center.x}, ${coordinateX_0.getBBox().y2 - center.y})`);
-coordinateY_1.transform(`translate(${translateZ.x}, ${translateZ.y})`);
-coordinateY_2.transform(`translate(${translateX.x}, ${translateX.y})`);
-coordinateZ_0.transform(`tanslate(${translateX.x}, ${translateX.y}) rotate(240, 300, 300)`);
-coordinateZ_1.transform(`translate(${translateX.x}, ${translateX.y - point3d.y}) rotate(240, 300, 300)`);
-coordinateZ_2.transform(`translate(${0}, ${-point3d.y}) rotate(240, 300, 300)`);
-// Переместить маркеры в новые координаты
-markerX.attr({ y1: center.y - point3d.x, y2: center.y - point3d.x });
-markerY.attr({ y1: center.y - point3d.y, y2: center.y - point3d.y });
-markerZ.attr({ y1: center.y - point3d.z, y2: center.y - point3d.z });
-
-// Переместить точку А и надпись
-pointA.attr({
-    'cx': coordinateY_0.getBBox().x,
-    'cy': coordinateY_0.getBBox().y
-});
-pointText.attr({
-    x: pointA.getBBox().cx + 5,
-    y: pointA.getBBox().cy - 5
-})
-
-// Провести вектор к новой точке
-radiusVector.attr({
-    x2: coordinateY_0.getBBox().x,
-    y2: coordinateY_0.getBBox().y
-});
-
-// Перемещение значений по осям
-valueX.attr({ y: center.x - point3d.x - 10}).transform(`rotate(-90 305 ${center.x - point3d.x})`)
-valueY.attr({ y: center.y - point3d.y  })
-valueZ.attr({ y: center.y - point3d.z - valueZ.getBBox().height }).transform(`rotate(90 305 ${center.y - point3d.z - valueZ.getBBox().height})`)
-
-var move = function (dx, dy, mx, my, ev) {
-    console.log('move ', dx, dy, mx, my, ev)
-    if (this.attr('data-orientation') == 'horizontal') {
-        //if (center.x < this.getBBox().x && this.getBBox().x < center.x + 250) {
-            this.node.innerHTML = this.getBBox().x + dx - this.attr('y');
-            this.attr({
-                transform: this.data('origTransform') + (this.data('origTransform') ? "T" : "t") + dx
-            });
-        //}
-    } else {
-        if (0 < center.y - my && center.y - my < 250) {
-            this.node.innerHTML = center.y - my
-            this.attr({
-                transform: this.data('origTransform') + (this.data('origTransform') ? "T0 " : "t0 ") + dy
-                //y: my
-            });
-        }
+valueX.on('dragmove.namespase', e => {
+    const { handler, box } = e.detail
+    e.preventDefault()
+    let { x, y } = box
+    x = Math.round(x)
+    y = Math.round(y)
+    vPoint.x = x -70;
+    if (vPoint.x > 0 && vPoint.x < 240) {
+        handler.el.x(x)
+        handler.el.plain(vPoint.x)
+        calculateСoordinates(vPoint)
     }
-}
+    //handler.el.x(x)
+    //handler.el.plain(x - (center.x - vPoint.x))
 
-var start = function (x, y, ev) {
-    this.data('origTransform', this.transform().local);
-    //console.log('start ', x, y, ev )
-}
-var stop = function () {
-    //console.log('stop');
-}
+}).draggable()
 
-valueX.drag(move, start, stop);
-valueY.drag(move, start, stop);
-valueZ.drag(move, start, stop);
+valueY.on('dragmove.namespase', e => {
+    const { handler, box } = e.detail
+    e.preventDefault()
+    let { x, y } = box
+    x = Math.round(x)
+    y = Math.round(y)
+    vPoint.y = center.y - y - 15
+    if (vPoint.y > 0 && vPoint.y < 240) {
+        handler.el.y(y)
+        handler.el.plain(vPoint.y)
+        calculateСoordinates(vPoint)
+    }
+}).draggable()
 
+valueZ.on('dragstart.namespase', e => {
+    console.log(e.detail)
+}).on('dragmove.namespase', e => {
+    const { handler, box } = e.detail
+    e.preventDefault()
+    let { x, y } = box
+    x = Math.round(x)
+    y = Math.round(y)
+    console.log(x - 150)
+    /* handler.el.x(x)
+    handler.el.plain(x - (center.x - vPoint.x)) */
+    vPoint.z = 300 - (x - 130)
+    if (vPoint.z > 0 && vPoint.z < 240) {
+        handler.el.x(x)
+        handler.el.plain(vPoint.z)
+        calculateСoordinates(vPoint)
+    }
+
+}).draggable()
