@@ -1,6 +1,8 @@
 // Координаты центра
 var center = { x: 300, y: 300 },
     point3d = { x: 230, y: 200, z: 100 };
+
+
 // Перевод градусов в радианы
 function rad(angle) {
     return angle * Math.PI / 180;
@@ -12,16 +14,13 @@ var gAxis = SVG('#gAxis')
 var radiusVector = SVG('#radiusVector'),
     gPointA = SVG('#gPointA'),
     pointA = SVG('#pointA')
-    pointText = SVG('#pointText');
+pointText = SVG('#pointText');
 
 var vectorX = SVG('#vectorX'),
-    markerX = SVG('#markerX'),
     valueX = SVG('#valueX'),
     vectorY = SVG('#vectorY'),
-    markerY = SVG('#markerY'),
     valueY = SVG('#valueY'),
     vectorZ = SVG('#vectorZ'),
-    markerZ = SVG('#markerZ'),
     valueZ = SVG('#valueZ');
 
 var gProjections = SVG('#gProjections'),
@@ -32,11 +31,10 @@ var gProjections = SVG('#gProjections'),
     projectionY = SVG('#projectionY'),
     projectionZ = SVG('#projectionZ');
 
-var coordinateX_0 = SVG('#coordinateX_0'),
-    coordinateY_0 = SVG('#coordinateY_0'),
-    coordinateZ_0 = SVG('#coordinateZ_0');
-
 var gCordinates = SVG('#gCordinates'),
+    coordinateX_0 = SVG('#coordinateX_0'),
+    coordinateY_0 = SVG('#coordinateY_0'),
+    coordinateZ_0 = SVG('#coordinateZ_0'),
     coordinateX_1 = SVG('#coordinateX_1'),
     coordinateX_2 = SVG('#coordinateX_2'),
     coordinateY_1 = SVG('#coordinateY_1'),
@@ -51,7 +49,7 @@ var button1 = SVG('#button1'),
     textButton2 = SVG('#textButton2'),
     textButton3 = SVG('#textButton3');
 
-valueX.on('dragmove.namespase', e => {
+/* valueX.on('dragmove.namespase', e => {
     const { handler, box } = e.detail
     e.preventDefault()
     let { x, y } = box
@@ -61,7 +59,7 @@ valueX.on('dragmove.namespase', e => {
     handler.el.x(Math.round(x))
     handler.el.plain(Math.round(x) - (center.x - point3d.x))
 
-}).draggable()
+}).draggable() */
 
 // Расчет проекций на оси
 vectorX.attr({ y2: center.y - point3d.x });
@@ -79,50 +77,72 @@ coordinateZ_1.attr({ y2: center.y - point3d.z });
 coordinateZ_2.attr({ y2: center.y - point3d.z });
 
 // Вычислить смещение координат 
-var translateX = {
+var tX = {
     x: Math.cos(rad(30)) * point3d.x,
     y: Math.sin(rad(30)) * point3d.x
 };
-var translateY = {
+console.log()
+var tY = {
     x: Math.cos(rad(0)) * point3d.y,
     y: Math.sin(rad(0)) * point3d.y
 };
-var translateZ = {
+var tZ = {
     x: Math.cos(rad(150)) * point3d.z,
     y: Math.sin(rad(150)) * point3d.z
 };
 // Перерисовать линии проекций по новым координатам
-//coordinateX_0.transform(`tanslate(${translateZ.x}, ${translateZ.y}) rotate(110, 300, 300)`);
 coordinateX_0.transform({
-    translateX: translateZ.x,
-    translateY: translateZ.y
+    translateX: tZ.x,
+    translateY: tZ.y
 }).rotate(120, 300, 300)
-
-//coordinateX_1.transform(`translate(${translateZ.x}, ${translateZ.y - point3d.y}) rotate(120, 300, 300)`);
-//coordinateX_2.transform(`translate(${0}, ${-point3d.y}) rotate(120, 300, 300)`);
-//coordinateY_0.transform(`tanslate(${coordinateX_0.getBBox().x2 - center.x}, ${coordinateX_0.getBBox().y2 - center.y})`);
-//console.log(coordinateX_0.rbox())
-//console.log(coordinateY_0.rbox())
-
+coordinateX_1.transform({
+    translateX: tZ.x,
+    translateY: tZ.y - point3d.y
+}).rotate(120, 300, 300);
+coordinateX_2.transform({
+    translateX: 0,
+    translateY: -point3d.y
+}).rotate(120, 300, 300)
 coordinateY_0.transform({
-    translateX: translateZ.x,
-    translateY: translateZ.y
-}).transform({
-    translateX: center.x,
-    translateY: center.y
+    translateX: tZ.x + tX.x,
+    translateY: tZ.y + tX.y
 })
-console.log(coordinateY_0.rbox())
-//coordinateY_1.transform(`translate(${translateZ.x}, ${translateZ.y})`);
-//coordinateY_2.transform(`translate(${translateX.x}, ${translateX.y})`);
-//coordinateZ_0.transform(`tanslate(${translateX.x}, ${translateX.y}) rotate(240, 300, 300)`);
+coordinateY_1.transform({
+    translateX: tZ.x,
+    translateY: tZ.y
+})
+coordinateY_2.transform({
+    translateX: tX.x,
+    translateY: tX.y
+})
 coordinateZ_0.transform({
-    translateX: translateX.x,
-    translateY: translateX.y
+    translateX: tX.x,
+    translateY: tX.y
 }).rotate(240, 300, 300)
-console.log(coordinateZ_0.rbox())
-//coordinateZ_1.transform(`translate(${translateX.x}, ${translateX.y - point3d.y}) rotate(240, 300, 300)`);
-//coordinateZ_2.transform(`translate(${0}, ${-point3d.y}) rotate(240, 300, 300)`);
-//// Переместить маркеры в новые координаты
-//markerX.attr({ y1: center.y - point3d.x, y2: center.y - point3d.x });
-//markerY.attr({ y1: center.y - point3d.y, y2: center.y - point3d.y });
-//markerZ.attr({ y1: center.y - point3d.z, y2: center.y - point3d.z });
+coordinateZ_1.transform({
+    translateX: tX.x,
+    translateY: tX.y - point3d.y
+}).rotate(240, 300, 300)
+coordinateZ_2.transform({
+    translateX: 0,
+    translateY: -point3d.y
+}).rotate(240, 300, 300)
+
+// Переместить точку А и надпись
+/* pointA.attr({
+    'cx': coordinateY_0.getBBox().x,
+    'cy': coordinateY_0.getBBox().y
+}); */
+pointA.cx(center.x + tZ.x + tX.x);
+pointA.cy(center.y + tZ.y + tX.y - point3d.y);
+
+pointText.x(center.x + tZ.x + tX.x + 5);
+pointText.y(center.y + tZ.y + tX.y - point3d.y - 30);
+
+console.log(pointText.bbox())
+
+// Провести вектор к новой точке
+radiusVector.attr({
+    x2: center.x + tZ.x + tX.x,
+    y2: center.y + tZ.y + tX.y - point3d.y
+});
