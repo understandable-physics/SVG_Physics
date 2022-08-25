@@ -1,6 +1,6 @@
 // Координаты центра
 var center = { x: 300, y: 300 },
-    vPoint = { x: 230, y: 200, z: 100 };
+    vPoint = { x: 50, y: 100, z: 230 };
 
 
 // Перевод градусов в радианы
@@ -130,6 +130,7 @@ function calculateСoordinates(point) {
         y2: center.y + tZ.y + tX.y - point.y
     });
 }
+
 // Функция изменения видимости объектов
 function toggle_visibility(el, txtBtn) {
     if (el.visible()) {
@@ -144,6 +145,8 @@ function toggle_visibility(el, txtBtn) {
 button1.click(function () { toggle_visibility(radiusVector, textButton1) });
 button2.click(function () { toggle_visibility(gCordinates, textButton2) });
 button3.click(function () { toggle_visibility(gProjections, textButton3) });
+
+calculateСoordinates(vPoint)
 
 valueX.on('dragmove.namespase', e => {
     const { handler, box } = e.detail
