@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="Kinemat_1v_1" width="800" height="600" version="1.1" viewBox="0 0 800 600" sodipodi:docname="tmp2.svg" inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+    <sodipodi:namedview id="namedview4381" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" showgrid="true" inkscape:zoom="4.4500587" inkscape:cx="193.36824" inkscape:cy="423.58992" inkscape:window-width="1920" inkscape:window-height="1027" inkscape:window-x="1912" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="layer1">
+        <inkscape:grid type="xygrid" id="grid4518" />
+    </sodipodi:namedview>
+    <defs id="defs">
+        <marker id="blackArrow" overflow="visible" markerHeight="5.5999999" markerWidth="7.6999998" orient="auto-start-reverse" preserveAspectRatio="xMidYMid" refX="5" viewBox="0 0 7.7 5.6" refY="0">
+            <path transform="scale(0.7)" d="M -2,-4 9,0 -2,4 C 0,1.67 0,-1.66 -2,-4 Z" fill="#000000" fill-rule="evenodd" id="path4281" />
+        </marker>
+        <marker id="redArrow" overflow="visible" markerHeight="5.5999999" markerWidth="7.6999998" orient="auto-start-reverse" preserveAspectRatio="xMidYMid" refX="5" viewBox="0 0 7.7 5.6">
+            <path transform="scale(0.7)" d="M -2,-4 9,0 -2,4 C 0,1.67 0,-1.66 -2,-4 Z" fill="#ff0000" fill-rule="evenodd" id="path4284" />
+        </marker>
+        <marker id="blueArrow" overflow="visible" markerHeight="5.5999999" markerWidth="7.6999998" orient="auto-start-reverse" preserveAspectRatio="xMidYMid" refX="5" viewBox="0 0 7.7 5.6">
+            <path transform="scale(0.7)" d="M -2,-4 9,0 -2,4 C 0,1.67 0,-1.66 -2,-4 Z" fill="#0000ff" fill-rule="evenodd" id="path4287" />
+        </marker>
+        <filter id="filterAxisPlane" x="-0.073764264" y="-0.06388269" width="1.1475285" height="1.1277654" color-interpolation-filters="sRGB">
+            <feGaussianBlur stdDeviation="13.841249" id="feGaussianBlur4290" />
+        </filter>
+    </defs>
+    <g id="layer1">
+        <g id="gAxis" marker-end="url(#blackArrow)" stroke="#404040" stroke-width="2">
+            <g id="acxisText" font-family="sans-serif" font-size="26.667px" stroke="none" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25">
+                <text id="textX" x="512.60413" y="460">X</text>
+                <text id="textY" x="303.67184" y="40">Y</text>
+                <text id="textZ" x="48.359371" y="420">Z</text>
+            </g>
+            <line id="xaxis" transform="rotate(120 300 300)" x1="300" x2="300" y1="300" y2="30" stroke-width="2" />
+            <line id="yaxis" x1="300" x2="300" y1="300" y2="30" />
+            <line id="zaxis" transform="rotate(240 300 300)" x1="300" x2="300" y1="300" y2="30" />
+        </g>
+        <g id="gPlanes" fill-opacity=".15" filter="url(#filterAxisPlane)">
+            <path id="planeX" d="m300 300 225.17 130-225.17 130-225.17-130z" fill="#0f0" />
+            <path id="planeY" d="m300 300v-260l225.17 130v260z" fill="#00f" />
+            <path id="planeZ" d="m300 300-225.17 130v-260l225.17-130z" fill="#f00" />
+        </g>
+        <g id="gCordinates">
+            <g id="g55" stroke="#000" stroke-dasharray="3, 3">
+                <line id="coordinateX_0" transform="matrix(-.5 .86603 -.86603 -.5 510.62 305.19)" x1="300" x2="300" y1="300" y2="250" />
+                <line id="coordinateY_0" transform="translate(-155.88 140)" x1="300" x2="300" y1="300" y2="200" />
+                <line id="coordinateZ_0" transform="matrix(-.5 -.86603 .86603 -.5 233.49 734.81)" x1="300" x2="300" y1="300" y2="70" />
+            </g>
+            <g id="whiteСoordinates" stroke="#fff" stroke-width="1.5">
+                <line id="coordinateZ_1" transform="matrix(-.5 -.86603 .86603 -.5 233.49 634.81)" x1="300" x2="300" y1="300" y2="70" />
+                <line id="coordinateZ_2" transform="matrix(-.5 -.86603 .86603 -.5 190.19 609.81)" x1="300" x2="300" y1="300" y2="70" />
+                <line id="coordinateY_1" transform="translate(-199.19 115)" x1="300" x2="300" y1="300" y2="200" />
+                <line id="coordinateY_2" transform="translate(43.301 25)" x1="300" x2="300" y1="300" y2="200" />
+                <line id="coordinateX_1" transform="matrix(-.5 .86603 -.86603 -.5 510.62 205.19)" x1="300" x2="300" y1="300" y2="250" />
+                <line id="coordinateX_2" transform="matrix(-.5 .86603 -.86603 -.5 709.81 90.192)" x1="300" x2="300" y1="300" y2="250" />
+            </g>
+        </g>
+        <line id="radiusVector" x1="300" x2="144.12" y1="300" y2="340" fill="none" marker-end="url(#blueArrow)" stroke="#00f" stroke-width="2" />
+        <g id="txtRadiusVector">
+            <text id="nameTxtRadiusVector" x="200" y="320" fill="#000000" font-family="sans-serif" font-size="26.67px" font-style="italic" style="line-height:1.25;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal" xml:space="preserve"><tspan id="tspan593">r</tspan></text>
+            <path id="arrowTxtRadiusVector" d="M 204,302 h 9" fill="none" marker-end="url(#Arrow1)" stroke="#000000" stroke-width="0.8367" style="stroke-width:0.5;stroke-dasharray:none;marker-end:url(#blackArrow)" />
+            <text id="indexTxtRadiusVector" x="210" y="322" fill="#000000" font-family="sans-serif" font-size="40px" style="line-height:1.25" xml:space="preserve"><tspan id="tspan2261" font-family="sans-serif" font-size="13.33px" font-style="italic" style="font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">A</tspan></text>
+        </g>
+        <g id="gProjections" stroke="#f00" stroke-width="2">
+            <g id="projectionX">
+                <g id="gVectorX" transform="rotate(120 300 300)">
+                    <text id="valueX" class="button" transform="rotate(-90 300 70)" x="120" y="65" fill="#000000" font-family="sans-serif" font-size="16px" stroke="none" stroke-width="2" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" data-orientation="horizontal" xml:space="preserve">50</text>
+                    <line id="vectorX" x1="300" x2="300" y1="300" y2="250" marker-end="url(#redArrow)" stroke="#f00" />
+                </g>
+            </g>
+            <g id="projectionY">
+                <g id="gVectorY">
+                    <text id="valueY" class="button" x="305" y="199" fill="#000000" font-family="sans-serif" font-size="16px" stroke="none" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" data-orientation="vertical" xml:space="preserve">100</text>
+                    <line id="vectorY" x1="300" x2="300" y1="300" y2="200" marker-end="url(#redArrow)" />
+                </g>
+            </g>
+            <g id="projectionZ">
+                <g id="gVectorZ" transform="rotate(240 300 300)">
+                    <text id="valueZ" class="button" transform="rotate(90 305 170)" x="200" y="170" fill="#000000" font-family="sans-serif" font-size="16px" stroke="none" stroke-width="2" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" data-orientation="horizontal" xml:space="preserve">230</text>
+                    <line id="vectorZ" x1="300" x2="300" y1="300" y2="70" marker-end="url(#redArrow)" />
+                </g>
+            </g>
+        </g>
+        <g id="gPointA">
+            <circle id="pointA" cx="144.12" cy="340" r="5" fill="red" stroke="#000" />
+            <text id="pointText" x="150.1154221836831" y="334" fill="#000000" font-family="sans-serif" font-size="26.667px" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve">A</text>
+        </g>
+        <g id="buttons">
+            <g id="button1" class="button">
+                <rect id="rect2312" x="560" y="40" width="205" height="40" ry="10" fill="#fff" stroke="#7a3c01" stroke-width="2" />
+                <text id="textButton1" x="575" y="67" fill="#000000" font-family="sans-serif" font-size="24px" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve">Радіус-вектор</text>
+            </g>
+            <g id="button2" class="button">
+                <rect id="rect2319" x="560" y="120" width="205" height="40" ry="10" fill="#fff" stroke="#7a3c01" stroke-width="2" />
+                <text id="textButton2" x="575" y="147" fill="#000000" font-family="sans-serif" font-size="24px" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve">Координати</text>
+            </g>
+            <g id="button3" class="button">
+                <rect id="rect2327" x="560" y="200" width="205" height="40" ry="10" fill="#fff" stroke="#7a3c01" stroke-width="2" />
+                <text id="textButton3" x="575" y="227" fill="#000000" font-family="sans-serif" font-size="24px" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve">Проекції</text>
+            </g>
+            <g id="button4" class="button">
+                <rect id="rect504" x="560" y="280" width="205" height="40" ry="10" fill="#fff" stroke="#7a3c01" stroke-width="2" />
+                <text id="text506" x="575" y="307" fill="#000000" font-family="sans-serif" font-size="24px" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve"><tspan id="tspan510">Траєкторія</tspan></text>
+            </g>
+            <g id="button5" class="button">
+                <rect id="rect512" x="560" y="360" width="205" height="40" ry="10" fill="#fff" stroke="#7a3c01" stroke-width="2" />
+                <text id="text516" x="575" y="387" fill="#000000" font-family="sans-serif" font-size="24px" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve"><tspan id="tspan520" x="575" y="387">Переміщення та шлях</tspan></text>
+            </g>
+            <g id="button6" class="button">
+                <rect id="rect522" x="560" y="440" width="205" height="40" ry="10" fill="#fff" stroke="#7a3c01" stroke-width="2" />
+                <text id="text526" x="575" y="467" fill="#000000" font-family="sans-serif" font-size="24px" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve"><tspan id="tspan530">Середня швидкість</tspan></text>
+            </g>
+            <g id="button7" class="button">
+                <rect id="rect532" x="560" y="520" width="205" height="40" ry="10" fill="#fff" stroke="#7a3c01" stroke-width="2" />
+                <text id="text536" x="575" y="547" fill="#000000" font-family="sans-serif" font-size="24px" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve"><tspan id="tspan540">Миттєва швидкість</tspan></text>
+            </g>
+            <g id="additionalButton4">
+                <rect id="rect616" x="510" y="280" width="40" height="40" ry="10" fill="#fff" stroke="#f00" stroke-width="2" />
+                <path id="path1232" d="m520 290v20l20-10z" fill="none" stroke="#000" stroke-width="1px" />
+            </g>
+            <g id="additionalButton5">
+                <rect id="rect618" x="510" y="360" width="40" height="40" ry="10" fill="#fff" stroke="#f00" stroke-width="2" />
+                <path id="path1234" d="m520 370v20l20-10z" fill="none" stroke="#000" stroke-width="1px" />
+            </g>
+            <g id="additionalButton6">
+                <rect id="rect1254" x="510" y="440" width="40" height="40" ry="10" fill="#fff" stroke="#f00" stroke-width="2" />
+                <path id="path1236" d="m520 450v20l20-10z" fill="none" stroke="#000" stroke-width="1px" />
+            </g>
+            <g id="additionalButton8">
+                <rect id="rect1257" x="510" y="520" width="40" height="40" ry="10" fill="#fff" stroke="#f00" stroke-width="2" />
+                <path id="path1238" d="m520 530v20l20-10z" fill="none" stroke="#000" stroke-width="1px" />
+            </g>
+        </g>
+        <!-- <path id="trajectory" d="m131.03 372.98c101.65-255.28 241.46-265.49 353.31-81.69" fill="none" stroke="#000"/> -->
+        <g id="txtCoordinateX_0">
+            <text xml:space="preserve" style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.6667px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none" x="105" y="440" id="text7095"><tspan sodipodi:role="line" id="tspan7093" x="105" y="440">X</tspan></text>
+            <text xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none" x="115.89844" y="442.81641" id="text7099"><tspan sodipodi:role="line" id="tspan7097" x="115.89844" y="442.81641">A</tspan></text>
+        </g>
+        <g id="txtCoordinateZ_0">
+            <text xml:space="preserve" style="font-style:italic;font-weight:normal;font-size:18.6667px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;-inkscape-font-specification:'sans-serif, Italic';font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal" x="245" y="395" id="text7327"><tspan sodipodi:role="line" x="245" y="395" id="tspan7341">Z</tspan></text>
+            <text xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none" x="255.89844" y="398" id="text7331"><tspan sodipodi:role="line" id="tspan7329" x="255.89844" y="398">A</tspan></text>
+        </g>
+        <g id="txtCoordinateY_0">
+            <text xml:space="preserve" style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.6667px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none" x="146.24219" y="399" id="text7335"><tspan sodipodi:role="line" id="tspan7333" x="146.24219" y="399">Y</tspan></text>
+            <text xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none" x="154.63281" y="400.81641" id="text7339"><tspan sodipodi:role="line" id="tspan7337" x="154.63281" y="400.81641">A</tspan></text>
+        </g>
+    </g>
+</svg>

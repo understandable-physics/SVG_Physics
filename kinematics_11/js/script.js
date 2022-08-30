@@ -8,10 +8,13 @@ function rad(angle) {
     return angle * Math.PI / 180;
 }
 
-var s = SVG('#Kinemat_1v_1')
+var s = SVG('#Kinemat_1v_1');
+
 var gAxis = SVG('#gAxis')
 
-var radiusVector = SVG('#radiusVector'),
+var gRadiusVector = SVG('#gRadiusVector'),
+    radiusVector = SVG('#radiusVector'),
+    txtRadiusVector = SVG("#txtRadiusVector"),
     gPointA = SVG('#gPointA'),
     pointA = SVG('#pointA'),
     pointText = SVG('#pointText');
@@ -33,8 +36,11 @@ var gProjections = SVG('#gProjections'),
 
 var gCordinates = SVG('#gCordinates'),
     coordinateX_0 = SVG('#coordinateX_0'),
+    txtCoordinateX_0 = SVG('#txtCoordinateX_0'),
     coordinateY_0 = SVG('#coordinateY_0'),
+    txtCoordinateY_0 = SVG('#txtCoordinateY_0'),
     coordinateZ_0 = SVG('#coordinateZ_0'),
+    txtCoordinateZ_0 = SVG('#txtCoordinateZ_0'),
     coordinateX_1 = SVG('#coordinateX_1'),
     coordinateX_2 = SVG('#coordinateX_2'),
     coordinateY_1 = SVG('#coordinateY_1'),
@@ -70,7 +76,6 @@ function calculateСoordinates(point) {
         x: Math.cos(rad(30)) * point.x,
         y: Math.sin(rad(30)) * point.x
     };
-    console.log()
     var tY = {
         x: Math.cos(rad(0)) * point.y,
         y: Math.sin(rad(0)) * point.y
@@ -83,7 +88,11 @@ function calculateСoordinates(point) {
     coordinateX_0.transform({
         translateX: tZ.x,
         translateY: tZ.y
-    }).rotate(120, 300, 300)
+    }).rotate(120, 300, 300);
+
+    txtCoordinateX_0.x(coordinateX_0.rbox().cx - 20);
+    txtCoordinateX_0.y(coordinateX_0.rbox().cy);
+
     coordinateX_1.transform({
         translateX: tZ.x,
         translateY: tZ.y - point.y
@@ -95,7 +104,9 @@ function calculateСoordinates(point) {
     coordinateY_0.transform({
         translateX: tZ.x + tX.x,
         translateY: tZ.y + tX.y
-    })
+    });
+    txtCoordinateY_0.x(coordinateY_0.rbox().cx);
+    txtCoordinateY_0.y(coordinateY_0.rbox().cy - 10);
     coordinateY_1.transform({
         translateX: tZ.x,
         translateY: tZ.y
@@ -107,7 +118,9 @@ function calculateСoordinates(point) {
     coordinateZ_0.transform({
         translateX: tX.x,
         translateY: tX.y
-    }).rotate(240, 300, 300)
+    }).rotate(240, 300, 300);
+    txtCoordinateZ_0.x(coordinateZ_0.rbox().cx);
+    txtCoordinateZ_0.y(coordinateZ_0.rbox().cy);
     coordinateZ_1.transform({
         translateX: tX.x,
         translateY: tX.y - point.y
@@ -129,6 +142,8 @@ function calculateСoordinates(point) {
         x2: center.x + tZ.x + tX.x,
         y2: center.y + tZ.y + tX.y - point.y
     });
+    txtRadiusVector.x(radiusVector.cx() - 10);
+    txtRadiusVector.y(radiusVector.cy() - 10);
 }
 
 // Функция изменения видимости объектов
@@ -142,7 +157,7 @@ function toggle_visibility(el, txtBtn) {
     }
 }
 // Обработка нажатия кнопок
-button1.click(function () { toggle_visibility(radiusVector, textButton1) });
+button1.click(function () { toggle_visibility(gRadiusVector, textButton1) });
 button2.click(function () { toggle_visibility(gCordinates, textButton2) });
 button3.click(function () { toggle_visibility(gProjections, textButton3) });
 
@@ -154,7 +169,7 @@ valueX.on('dragmove.namespase', e => {
     let { x, y } = box
     x = Math.round(x)
     y = Math.round(y)
-    vPoint.x = x -70;
+    vPoint.x = x - 70;
     if (vPoint.x > 0 && vPoint.x < 240) {
         handler.el.x(x)
         handler.el.plain(vPoint.x)
@@ -179,15 +194,13 @@ valueY.on('dragmove.namespase', e => {
     }
 }).draggable()
 
-valueZ.on('dragstart.namespase', e => {
-    console.log(e.detail)
-}).on('dragmove.namespase', e => {
+valueZ.on('dragmove.namespase', e => {
     const { handler, box } = e.detail
     e.preventDefault()
     let { x, y } = box
     x = Math.round(x)
     y = Math.round(y)
-    console.log(x - 150)
+    console.log(x, y)
     /* handler.el.x(x)
     handler.el.plain(x - (center.x - vPoint.x)) */
     vPoint.z = 300 - (x - 130)
@@ -198,3 +211,34 @@ valueZ.on('dragstart.namespase', e => {
     }
 
 }).draggable()
+
+
+var trajectory = s.path(`m${pointA.cx()},${pointA.cy()} Q${pointA.cx() + (480 - pointA.cx()) / 2},${0} ${480},${pointA.cy()}`),
+    //var trajectory = s.path(`M${pointA.cx()},${pointA.cy()} ${480},${pointA.cy()}`),
+    trajectory2 = trajectory.clone(),
+    length = trajectory2.length();
+trajectory.fill('none').stroke({ width: 1, color: '#000' })
+
+var additionalButton4 = SVG('#additionalButton4'),
+    additionalButton5 = SVG('#additionalButton5'),
+    additionalButton6 = SVG('#additionalButton6'),
+    additionalButton7 = SVG('#additionalButton7'),
+    additionalButton8 = SVG('#additionalButton8');
+
+additionalButton4.click(function () {
+
+    pointA.animate(2000).during(function (eased) {
+        let p = trajectory2.pointAt(eased * length)
+
+        pointA.center(p.x, p.y)
+        pointText.x(p.x + 5);
+        pointText.y(p.y - 30);
+        radiusVector.attr({
+            x2: p.x,
+            y2: p.y
+        });
+        console.log()
+        txtRadiusVector.x(radiusVector.cx() - 10);
+        txtRadiusVector.y(radiusVector.cy() - 10);
+    })
+})

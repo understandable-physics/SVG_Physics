@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg id="Kinemat_1v_1" width="800" height="600" version="1.1" viewBox="0 0 800 600" sodipodi:docname="Kinemat_1v_1.svg" inkscape:version="1.2 (dc2aedaf03, 2022-05-15)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
-    <sodipodi:namedview id="namedview266" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" showgrid="true" showguides="false" inkscape:zoom="0.92159581" inkscape:cx="301.10814" inkscape:cy="353.73425" inkscape:window-width="1920" inkscape:window-height="1027" inkscape:window-x="1912" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="buttons">
+    <sodipodi:namedview id="namedview266" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" showgrid="true" showguides="false" inkscape:zoom="0.92159581" inkscape:cx="522.46331" inkscape:cy="359.15962" inkscape:window-width="1920" inkscape:window-height="1027" inkscape:window-x="1912" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="layer1">
         <inkscape:grid type="xygrid" id="grid408" />
         <sodipodi:guide position="560,300" orientation="0,-1" id="guide476" inkscape:locked="false" />
         <sodipodi:guide position="560,300" orientation="1,0" id="guide478" inkscape:locked="false" />
@@ -132,11 +132,23 @@
                 <rect id="rect532" x="560" y="520" width="205" height="40" ry="10" fill="#ffffff" stroke="#7a3c01" stroke-width="2" />
                 <text id="text536" x="575" y="547" fill="#000000" font-family="sans-serif" font-size="24px" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000" xml:space="preserve"><tspan sodipodi:role="line" id="tspan540">Миттєва швидкість</tspan></text>
             </g>
-            <rect style="fill:#ffffff;stroke:#ff0000;stroke-width:2" id="rect616" width="40" height="40" x="510" y="280" ry="10" />
-            <rect style="fill:#ffffff;stroke:#ff0000;stroke-width:2" id="rect618" width="40" height="40" x="510" y="360" ry="10" />
-            <rect style="fill:#ffffff;stroke:#ff0000;stroke-width:2;" id="rect1254" width="40" height="40" x="510" y="440" ry="10" />
-            <rect style="fill:#ffffff;stroke:#ff0000;stroke-width:2;" id="rect1257" width="40" height="40" x="510" y="520" ry="10" />
+            <g id="additionalButton4">
+                <rect style="fill:#ffffff;stroke:#ff0000;stroke-width:2" id="rect616" width="40" height="40" x="510" y="280" ry="10" />
+                <path style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M 520,290 V 310 L 540,300 Z" id="path1232" />
+            </g>
+            <g id="additionalButton5">
+                <rect style="fill:#ffffff;stroke:#ff0000;stroke-width:2" id="rect618" width="40" height="40" x="510" y="360" ry="10" />
+                <path style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M 520,370 V 390 L 540,380 Z" id="path1234" />
+            </g>
+            <g id="additionalButton6">
+                <rect style="fill:#ffffff;stroke:#ff0000;stroke-width:2" id="rect1254" width="40" height="40" x="510" y="440" ry="10" />
+                <path style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M 520,450 V 470 L 540,460 Z" id="path1236" />
+            </g>
+            <g id="additionalButton8">
+                <rect style="fill:#ffffff;stroke:#ff0000;stroke-width:2" id="rect1257" width="40" height="40" x="510" y="520" ry="10" />
+                <path style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M 520,530 V 550 L 540,540 Z" id="path1238" />
+            </g>
         </g>
-        <path style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" d="M 131.02906,372.97939 C 232.68209,117.699 372.49206,107.48777 484.34003,291.28965" id="path477" sodipodi:nodetypes="cc" />
+        <path style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" d="M 131.02906,372.97939 C 232.68209,117.699 372.49206,107.48777 484.34003,291.28965" id="trajectory" sodipodi:nodetypes="cc" />
     </g>
 </svg>
