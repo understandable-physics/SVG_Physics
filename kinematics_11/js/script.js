@@ -9,8 +9,7 @@ function rad(angle) {
 }
 
 var s = SVG('#Kinemat_1v_1');
-
-var gAxis = SVG('#gAxis')
+var gAxis = SVG('#gAxis');
 
 var gRadiusVector = SVG('#gRadiusVector'),
     radiusVector = SVG('#radiusVector'),
@@ -19,12 +18,9 @@ var gRadiusVector = SVG('#gRadiusVector'),
     pointA = SVG('#pointA'),
     pointText = SVG('#pointText');
 
-var vectorX = SVG('#vectorX'),
-    valueX = SVG('#valueX'),
-    vectorY = SVG('#vectorY'),
-    valueY = SVG('#valueY'),
-    vectorZ = SVG('#vectorZ'),
-    valueZ = SVG('#valueZ');
+var vectorX = SVG('#vectorX'), valueX = SVG('#valueX'),
+    vectorY = SVG('#vectorY'), valueY = SVG('#valueY'),
+    vectorZ = SVG('#vectorZ'), valueZ = SVG('#valueZ');
 
 var gProjections = SVG('#gProjections'),
     gProjectionX = SVG('#gProjectionX'),
@@ -35,27 +31,19 @@ var gProjections = SVG('#gProjections'),
     projectionZ = SVG('#projectionZ');
 
 var gCordinates = SVG('#gCordinates'),
-    coordinateX_0 = SVG('#coordinateX_0'),
-    txtCoordinateX_0 = SVG('#txtCoordinateX_0'),
-    coordinateY_0 = SVG('#coordinateY_0'),
-    txtCoordinateY_0 = SVG('#txtCoordinateY_0'),
-    coordinateZ_0 = SVG('#coordinateZ_0'),
-    txtCoordinateZ_0 = SVG('#txtCoordinateZ_0'),
-    coordinateX_1 = SVG('#coordinateX_1'),
-    coordinateX_2 = SVG('#coordinateX_2'),
-    coordinateY_1 = SVG('#coordinateY_1'),
-    coordinateY_2 = SVG('#coordinateY_2'),
-    coordinateZ_1 = SVG('#coordinateZ_1'),
-    coordinateZ_2 = SVG('#coordinateZ_2');
+    coordinateX_0 = SVG('#coordinateX_0'),coordinateX_1 = SVG('#coordinateX_1'),coordinateX_2 = SVG('#coordinateX_2'),txtCoordinateX_0 = SVG('#txtCoordinateX_0'),
+    coordinateY_0 = SVG('#coordinateY_0'),coordinateY_1 = SVG('#coordinateY_1'),coordinateY_2 = SVG('#coordinateY_2'),txtCoordinateY_0 = SVG('#txtCoordinateY_0'),
+    coordinateZ_0 = SVG('#coordinateZ_0'),coordinateZ_1 = SVG('#coordinateZ_1'),coordinateZ_2 = SVG('#coordinateZ_2'),txtCoordinateZ_0 = SVG('#txtCoordinateZ_0');
+    
+var button1 = SVG('#button1'), textButton1 = SVG('#textButton1'),
+    button2 = SVG('#button2'), textButton2 = SVG('#textButton2'),
+    button3 = SVG('#button3'), textButton3 = SVG('#textButton3'),
+    button4 = SVG('#button4'), textButton4 = SVG('#textButton4'), additionalButton4 = SVG('#additionalButton4'),
+    button5 = SVG('#button5'), textButton5 = SVG('#textButton5'), additionalButton5 = SVG('#additionalButton5'),
+    button6 = SVG('#button6'), textButton6 = SVG('#textButton6'), additionalButton6 = SVG('#additionalButton6'),
+    button7 = SVG('#button7'), textButton7 = SVG('#textButton7'), additionalButton7 = SVG('#additionalButton7');
 
-var button1 = SVG('#button1'),
-    button2 = SVG('#button2'),
-    button3 = SVG('#button3'),
-    textButton1 = SVG('#textButton1'),
-    textButton2 = SVG('#textButton2'),
-    textButton3 = SVG('#textButton3');
-
-function calculateСoordinates(point) {
+function movePoint(point) {
     // Расчет проекций на оси
     vectorX.attr({ y2: center.y - point.x });
     vectorY.attr({ y2: center.y - point.y });
@@ -72,15 +60,11 @@ function calculateСoordinates(point) {
     coordinateZ_2.attr({ y2: center.y - point.z });
 
     // Вычислить смещение координат 
-    var tX = {
+    let tX = {
         x: Math.cos(rad(30)) * point.x,
         y: Math.sin(rad(30)) * point.x
     };
-    var tY = {
-        x: Math.cos(rad(0)) * point.y,
-        y: Math.sin(rad(0)) * point.y
-    };
-    var tZ = {
+    let tZ = {
         x: Math.cos(rad(150)) * point.z,
         y: Math.sin(rad(150)) * point.z
     };
@@ -161,7 +145,7 @@ button1.click(function () { toggle_visibility(gRadiusVector, textButton1) });
 button2.click(function () { toggle_visibility(gCordinates, textButton2) });
 button3.click(function () { toggle_visibility(gProjections, textButton3) });
 
-calculateСoordinates(vPoint)
+movePoint(vPoint)
 
 valueX.on('dragmove.namespase', e => {
     const { handler, box } = e.detail
@@ -173,7 +157,7 @@ valueX.on('dragmove.namespase', e => {
     if (vPoint.x > 0 && vPoint.x < 240) {
         handler.el.x(x)
         handler.el.plain(vPoint.x)
-        calculateСoordinates(vPoint)
+        movePoint(vPoint)
     }
     //handler.el.x(x)
     //handler.el.plain(x - (center.x - vPoint.x))
@@ -190,7 +174,7 @@ valueY.on('dragmove.namespase', e => {
     if (vPoint.y > 0 && vPoint.y < 240) {
         handler.el.y(y)
         handler.el.plain(vPoint.y)
-        calculateСoordinates(vPoint)
+        movePoint(vPoint)
     }
 }).draggable()
 
@@ -207,25 +191,22 @@ valueZ.on('dragmove.namespase', e => {
     if (vPoint.z > 0 && vPoint.z < 240) {
         handler.el.x(x)
         handler.el.plain(vPoint.z)
-        calculateСoordinates(vPoint)
+        movePoint(vPoint)
     }
 
 }).draggable()
 
 
-var trajectory = s.path(`m${pointA.cx()},${pointA.cy()} Q${pointA.cx() + (480 - pointA.cx()) / 2},${0} ${480},${pointA.cy()}`),
-    //var trajectory = s.path(`M${pointA.cx()},${pointA.cy()} ${480},${pointA.cy()}`),
-    trajectory2 = trajectory.clone(),
-    length = trajectory2.length();
-trajectory.fill('none').stroke({ width: 1, color: '#000' })
 
-var additionalButton4 = SVG('#additionalButton4'),
-    additionalButton5 = SVG('#additionalButton5'),
-    additionalButton6 = SVG('#additionalButton6'),
-    additionalButton7 = SVG('#additionalButton7'),
-    additionalButton8 = SVG('#additionalButton8');
 
-additionalButton4.click(function () {
+
+    button4.click(function () {
+        //toggle additionalButton4
+        //reset ppoint position
+        //disable unnecessary features
+    })
+    
+/* additionalButton4.click(function () {
 
     pointA.animate(2000).during(function (eased) {
         let p = trajectory2.pointAt(eased * length)
@@ -241,4 +222,60 @@ additionalButton4.click(function () {
         txtRadiusVector.x(radiusVector.cx() - 10);
         txtRadiusVector.y(radiusVector.cy() - 10);
     })
+}) */
+
+
+var trajectory = SVG('#trajectory')
+var trajectory_coords = `M${pointA.cx().toFixed(3)},${pointA.cy().toFixed(3)} `
+
+var intervalId;
+additionalButton4.click(function () {
+    if (intervalId){return;}
+    intervalId = setInterval(function () {
+        if (vPoint.x < 230) {
+            vPoint.x += Math.cos(rad(45));
+            // Формула параболы по заданным координатам
+            vPoint.y = (-1 * ((13 * Math.pow(vPoint.x, 2)) / 810)) + ((364 * vPoint.x) / 81) - (6850 / 81);
+            vPoint.z -= (Math.cos(rad(45)));
+
+            valueX.plain(Math.round(vPoint.x));
+            valueY.plain(Math.round(vPoint.y));
+            valueZ.plain(Math.round(vPoint.z));
+
+            valueX.x(valueX.x() + Math.cos(rad(45)));
+            valueY.move(center.x + 10, vectorY.rbox().y - 10);
+            valueZ.x(valueZ.x() + Math.cos(rad(45)));
+            
+            
+
+            let tX = {
+                x: Math.cos(rad(30)) * vPoint.x,
+                y: Math.sin(rad(30)) * vPoint.x
+            };
+            let tZ = {
+                x: Math.cos(rad(150)) * vPoint.z,
+                y: Math.sin(rad(150)) * vPoint.z
+            };
+            let px = center.x + tZ.x + tX.x,
+                py = center.y + tZ.y + tX.y - vPoint.y;
+            trajectory_coords += `${px},${py} `;
+
+        } else {
+            clearInterval(intervalId);
+            intervalId = null;
+        }
+
+        trajectory.attr({
+            d: trajectory_coords,
+            fill: 'none',
+            stroke: '#000',
+            'stroke-width': 1,
+            'stroke-dasharray': '10 5'
+        });
+        movePoint(vPoint)
+
+    }, 10);
+
 })
+
+
