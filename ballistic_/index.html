@@ -41,51 +41,118 @@
   <marker id="axisArrow" overflow="visible" markerHeight="5.93049456" markerWidth="6.1347518" orient="auto-start-reverse" preserveAspectRatio="xMidYMid" viewBox="0 0 6.1347524 5.93049514">
    <path id="path1367" transform="scale(.7)" d="m-0.2111-4.106 6.422 3.211a1 1 90 0 1 0 1.789l-6.422 3.211a1.236 1.236 31.72 0 1-1.789-1.106v-6a1.236 1.236 148.3 0 1 1.789-1.106z" fill="#555" fill-rule="evenodd"></path>
   </marker>
+  <marker id="yellowArrow" overflow="visible" markerHeight="5.93049456" markerWidth="6.1347518" orient="auto-start-reverse" preserveAspectRatio="xMidYMid" viewBox="0 0 6.1347524 5.93049514">
+   <path id="path1367" transform="scale(.5)" d="m-0.2111-4.106 6.422 3.211a1 1 90 0 1 0 1.789l-6.422 3.211a1.236 1.236 31.72 0 1-1.789-1.106v-6a1.236 1.236 148.3 0 1 1.789-1.106z" fill=yellow fill-rule="evenodd"></path>
+  </marker>
+  <marker id="greenArrow" overflow="visible" markerHeight="5.93049456" markerWidth="6.1347518" orient="auto-start-reverse" preserveAspectRatio="xMidYMid" viewBox="0 0 6.1347524 5.93049514">
+   <path id="path1367" transform="scale(.5)" d="m-0.2111-4.106 6.422 3.211a1 1 90 0 1 0 1.789l-6.422 3.211a1.236 1.236 31.72 0 1-1.789-1.106v-6a1.236 1.236 148.3 0 1 1.789-1.106z" fill=green fill-rule="evenodd"></path>
+  </marker>
  </defs>
+
  <g id="buttons">
-	<rect id="button1" width="200" height="50" x="100" y="25" stroke="#000000" fill="#cccccc"></rect>
-	<rect id="button2" width="200" height="50" x="300" y="25" stroke="#000000" fill="#cccccc"></rect>
-	<rect id="button3" width="200" height="50" x="500" y="25" stroke="#000000" fill="#cccccc"></rect>
-	<rect id="button4" width="50" height="50" x="500" y="75" stroke="#000000" fill="#cccccc"></rect>
-	<rect id="button5" width="50" height="50" x="550" y="75" stroke="#000000" fill="#cccccc"></rect>
-	<rect id="button6" width="50" height="50" x="500" y="125" stroke="#000000" fill="#cccccc"></rect>
-	<rect id="button7" width="50" height="50" x="550" y="125" stroke="#000000" fill="#cccccc"></rect>
-	<line id="draggline1" x1="410" y1="100" x2="490" y2="100" stroke-linecap="round" stroke-width="7" stroke="#cccccc"></line>
-	<circle id="draggable1" r="10" cx="400" cy="100" stroke="#000000" fill="#cccccc"></circle>
-	<line id="draggline2" x1="410" y1="150" x2="490" y2="150" stroke-linecap="round" stroke-width="7" stroke="#cccccc"></line>
-	<circle id="draggable2" r="10" cx="400" cy="150" stroke="#000000" fill="#cccccc"></circle></g>
+	<g id="button1">
+		<rect class="button_unclick" id="button1bar" width="200" height="50" x="50" y="25"></rect>
+		<text id="button1text" x="70" y="55"><tspan>Старт</tspan></text>
+	</g>
+	<g id="button2">
+		<rect class="button_unclick" id="button2bar" width="200" height="50" x="275" y="25"></rect>
+		<text id="button2text" x="295" y="55"><tspan>Позначки</tspan></text>
+	</g>
+	<g id="button3">
+		<rect class="button_unclick" id="button3bar" width="50" height="50" x="500" y="75"></rect>
+		<text id="button3text" x="520" y="105"><tspan>+</tspan></text>
+	</g>
+	<g id="button4">
+		<rect class="button_unclick" id="button4bar" width="50" height="50" x="550" y="75"></rect>
+		<text id="button4text" x="573" y="105"><tspan>-</tspan></text>
+	</g>
+	<g id="button5">
+		<rect class="button_unclick" id="button5bar" width="50" height="50" x="500" y="125"></rect>
+		<text id="button5text" x="520" y="155"><tspan>+</tspan></text>
+	</g>
+	<g id="button6">
+		<rect class="button_unclick" id="button6bar" width="50" height="50" x="550" y="125"></rect>
+		<text id="button5text" x="573" y="155"><tspan>-</tspan></text>
+	</g>
+	<g id ="draggbutton1">
+		<line id="draggline1" x1="410" y1="100" x2="490" y2="100" stroke-linecap="round" stroke-width="7" stroke="#cccccc"></line>
+		<circle id="draggbar1" r="10" cx="445" cy="100" stroke="#000000" fill="#cccccc"></circle>
+	</g>
+	<g id ="draggbutton2">
+		<line id="draggline2" x1="410" y1="150" x2="490" y2="150" stroke-linecap="round" stroke-width="7" stroke="#cccccc"></line>
+		<circle id="draggbar2" r="10" cx="490" cy="150" stroke="#000000" fill="#cccccc"></circle></g>
+	</g>
+	<g id = "dropdownmenue">
+		<rect id="dropdownmenuebackground" width="220" height="250" x="275" y="75" stroke="#000000" fill="#cccccc"></rect>
+		<g id = "dropdownmenuebutton1">
+			<rect class="button_on" id="dropdownmenuebutton1bar" width="200" height="20" x="285" y="85"></rect>
+			<text id = "dropdownmenuebutton1text" x="290" y="100"><tspan>проекція швидкості на ох</tspan></text>
+		</g>
+		<g id = "dropdownmenuebutton2">
+		<rect class="button_on" id="dropdownmenuebutton2bar" width="200" height="20" x="285" y="115"></rect>
+		<text id = "dropdownmenuebutton2text" x="290" y="130"><tspan>проекція швидкості на оу</tspan></text>
+		</g>
+		<g id = "dropdownmenuebutton3">
+		<rect class="button_on" id="dropdownmenuebutton3bar" width="200" height="20" x="285" y="145"></rect>
+		<text id = "dropdownmenuebutton3text" x="290" y="160"><tspan>результуюча швидкості</tspan></text>
+		</g>
+		<g id = "dropdownmenuebutton4">
+		<rect class="button_on" id="dropdownmenuebutton4bar" width="200" height="20" x="285" y="175"></rect>
+		<text id = "dropdownmenuebutton4text" x="290" y="190"><tspan>проекція положення на ох</tspan></text>
+		</g>
+		<g id = "dropdownmenuebutton5">
+		<rect class="button_on" id="dropdownmenuebutton5bar" width="200" height="20" x="285" y="205"></rect>
+		<text id = "dropdownmenuebutton5text" x="290" y="220"><tspan>проекція положення на оу</tspan></text>
+		</g>
+		<g id = "dropdownmenuebutton6">
+		<rect class="button_on" id="dropdownmenuebutton6bar" width="200" height="20" x="285" y="235"></rect>
+		<text id = "dropdownmenuebutton6text" x="290" y="250"><tspan>доцентрове прискорення</tspan></text>
+		</g>
+		<g id = "dropdownmenuebutton7">
+		<rect class="button_on" id="dropdownmenuebutton7bar" width="200" height="20" x="285" y="265"></rect>
+		<text id = "dropdownmenuebutton7text" x="290" y="280"><tspan>тангенціальне прискорення</tspan></text>
+		</g>
+		<g id = "dropdownmenuebutton8">
+		<rect class="button_on" id="dropdownmenuebutton8bar" width="200" height="20" x="285" y="295"></rect>
+		<text id = "dropdownmenuebutton8text" x="290" y="310"><tspan>прискорення</tspan></text>
+		</g>
+	</g>
  <g id="text" font-family="Helvetica">
-	<text x="120" y="55"><tspan>Старт</tspan></text>
-	<text x="320" y="55"><tspan>Пауза</tspan></text>
-	<text x="520" y="55"><tspan>Позначки</tspan></text>
-	<text x="520" y="105"><tspan>+</tspan></text>
-	<text x="573" y="105"><tspan>-</tspan></text>
-	<text x="520" y="155"><tspan>+</tspan></text>
-	<text x="573" y="155"><tspan>-</tspan></text>
-	<text x="30" y="85"><tspan>X</tspan></text>
-	<text x="715" y="520"><tspan>Y</tspan></text>
+
+
+	
+	<text x="95" y="180"><tspan>Y</tspan></text>
+	<text x="720" y="505"><tspan>X</tspan></text>
 	<text id = "angletext" x="615" y="105"><tspan>45 - Кут пострілу</tspan></text>
 	<text id = "speedtext" x="615" y="155"><tspan>75 - Початкова видкість</tspan></text></g>
  <g id="layer1">
 	<path id = "trajectory" d="M50,500 52.65,497.36 55.30,494.75 57.95,492.16 60.61,489.59 63.26,487.05 65.91,484.54 68.56,482.05 71.21,479.59 73.86,477.15 76.52,474.73 79.17,472.34 81.82,469.98 84.47,467.64 87.12,465.33 89.77,463.04 92.43,460.77 95.08,458.53 97.73,456.32 100.38,454.13 103.03,451.97 105.68,449.83 108.34,447.71 110.99,445.62 113.64,443.56 116.29,441.52 118.94,439.51 121.59,437.52 124.25,435.55 126.90,433.61 129.55,431.70 132.20,429.81 134.85,427.95 137.50,426.11 140.16,424.29 142.81,422.50 145.46,420.74 148.11,419.00 150.76,417.29 153.41,415.60 156.07,413.93 158.72,412.29 161.37,410.68 164.02,409.09 166.67,407.53 169.32,405.99 171.98,404.47 174.63,402.98 177.28,401.52 179.93,400.08 182.58,398.67 185.23,397.28 187.89,395.91 190.54,394.58 193.19,393.26 195.84,391.97 198.49,390.71 201.14,389.47 203.80,388.25 206.45,387.07 209.10,385.90 211.75,384.76 214.40,383.65 217.05,382.56 219.71,381.49 222.36,380.46 225.01,379.44 227.66,378.45 230.31,377.49 232.96,376.55 235.62,375.63 238.27,374.75 240.92,373.88 243.57,373.04 246.22,372.23 248.87,371.44 251.53,370.67 254.18,369.94 256.83,369.22 259.48,368.53 262.13,367.87 264.78,367.23 267.44,366.61 270.09,366.03 272.74,365.46 275.39,364.92 278.04,364.41 280.69,363.92 283.35,363.45 286.00,363.02 288.65,362.60 291.30,362.21 293.95,361.85 296.60,361.51 299.26,361.19 301.91,360.91 304.56,360.64 307.21,360.40 309.86,360.19 312.51,360.00 315.17,359.83 317.82,359.70 320.47,359.58 323.12,359.49 325.77,359.43 328.42,359.39 331.07,359.38 333.73,359.39 336.38,359.42 339.03,359.48 341.68,359.57 344.33,359.68 346.98,359.82 349.64,359.98 352.29,360.16 354.94,360.37 357.59,360.61 360.24,360.87 362.89,361.16 365.55,361.47 368.20,361.80 370.85,362.16 373.50,362.55 376.15,362.96 378.80,363.40 381.46,363.86 384.11,364.34 386.76,364.85 389.41,365.39 392.06,365.95 394.71,366.54 397.37,367.15 400.02,367.78 402.67,368.44 405.32,369.13 407.97,369.84 410.62,370.58 413.28,371.34 415.93,372.12 418.58,372.93 421.23,373.77 423.88,374.63 426.53,375.52 429.19,376.43 431.84,377.36 434.49,378.32 437.14,379.31 439.79,380.32 442.44,381.36 445.10,382.42 447.75,383.50 450.40,384.61 453.05,385.75 455.70,386.91 458.35,388.10 461.01,389.31 463.66,390.54 466.31,391.80 468.96,393.09 471.61,394.40 474.26,395.74 476.92,397.10 479.57,398.48 482.22,399.89 484.87,401.33 487.52,402.79 490.17,404.28 492.83,405.79 495.48,407.32 498.13,408.88 500.78,410.47 503.43,412.08 506.08,413.72 508.74,415.38 511.39,417.06 514.04,418.77 516.69,420.51 519.34,422.27 521.99,424.06 524.65,425.87 527.30,427.70 529.95,429.56 532.60,431.45 535.25,433.36 537.90,435.30 540.56,437.26 543.21,439.24 545.86,441.25 548.51,443.29 551.16,445.35 553.81,447.44 556.47,449.55 559.12,451.68 561.77,453.84 564.42,456.03 567.07,458.24 569.72,460.48 572.38,462.74 575.03,465.02 577.68,467.33 580.33,469.67 582.98,472.03 585.63,474.42 588.29,476.83 590.94,479.26 593.59,481.72 596.24,484.21 598.89,486.72 601.54,489.26 604.19,491.82 606.85,494.40 609.50,497.01 612.15,499.65 614.80,502.31 614.8,498.0 " fill="none" stroke="#cccccc" stroke-linecap="round" stroke-width="2"></path>
  </g>
  <g id="layer2">
-  <path id="YAxis" d="m50 500v-400" fill="none" marker-end="url(#axisArrow)" stroke="#555" stroke-linecap="round" stroke-width="3"></path>
-  <path id="XAxis" d="m50 500h650" fill="none" marker-end="url(#axisArrow)" stroke="#555" stroke-linecap="round" stroke-width="3"></path>
+  <path id="YAxis" d="m100 500v-300" fill="none" marker-end="url(#axisArrow)" stroke="#555" stroke-linecap="round" stroke-width="3"></path>
+  <path id="XAxis" d="m100 500h600" fill="none" marker-end="url(#axisArrow)" stroke="#555" stroke-linecap="round" stroke-width="3"></path>
   <circle id="projectile" cx="60" cy="490" r="10" fill="#666" style="display: none;"></circle>
  </g>
- <g id="markers" style="display: none;">
+ <g id="markers" >
 	<rect id = "xmarker" width="4" height="10" x="50" y="500" stroke="#ff0000" fill="#ff0000"></rect>
 	<rect id = "ymarker" width="10" height="4" x="40" y="500" stroke="#0000ff" fill="#0000ff"></rect>	
 	<text id = "xmarkertext" x="50" y="500"><tspan>X</tspan></text>
-	<text id = "ymarkertext"x="40" y="500"><tspan>Y</tspan></text>
+	<text id = "ymarkertext" x="30" y="500"><tspan>Y</tspan></text>
 	<line id = "xvector" x1="0" y1="0" x2="0" y2="0" stroke-linecap="round" stroke-width="3" x="50" y="500" stroke="#ff0000" marker-end="url(#redArrow)"></line>
 	<text id = "xvectortext"x="50" y="500"><tspan>Vx</tspan></text>
 	<line id = "yvector" x1="0" y1="0" x2="0" y2="0" stroke-linecap="round" stroke-width="3" x="50" y="500" stroke="#0000ff" marker-end="url(#blueArrow)"></line>
 	<text id = "yvectortext"x="50" y="500"><tspan>Vy</tspan></text>
 	<line id = "xyvector" x1="0" y1="0" x2="0" y2="0" stroke-linecap="round" stroke-width="3" x="50" y="500" stroke="#ff00ff" marker-end="url(#violetArrow)"></line>
-	<text id = "xyvectortext" x="40" y="500"><tspan>V</tspan></text></g>
- <g id="gun" transform="matrix(0.7071067811865476,-0.7071067811865475,0.7071067811865475,0.7071067811865476,-338.9087296526011,181.8019484660536)"> 
+	<text id = "xyvectortext" x="40" y="500"><tspan>V</tspan></text>
+	<line id = "acvector" x1="0" y1="0" x2="0" y2="0" stroke-linecap="round" stroke-width="3" x="50" y="500" stroke=yellow marker-end="url(#yellowArrow)"></line>
+	<text id = "acvectortext"x="50" y="500"><tspan>ac</tspan></text>
+	<line id = "atvector" x1="0" y1="0" x2="0" y2="0" stroke-linecap="round" stroke-width="3" x="50" y="500" stroke=green marker-end="url(#greenArrow)"></line>
+	<text id = "atvectortext"x="50" y="500"><tspan>at</tspan></text>
+	<line id = "avector" x1="0" y1="0" x2="0" y2="0" stroke-linecap="round" stroke-width="3" x="50" y="500" stroke="#ff00ff" marker-end="url(#violetArrow)"></line>
+	<text id = "avectortext" x="40" y="500"><tspan>a</tspan></text>
+	</g>
+	
+ <g id="gun" transform="matrix(0.7071067811865476,-0.7071067811865475,0.7071067811865475,0.7071067811865476,-324.2640687119285,217.15728752538098)"> 
 	<path d="M -5,486 -5,514 5,516 5,484 z" fill="#666666"></path>
 	<path d="M 5,484 5,516 50,514 50,486 z" fill="#666666"></path>
 	<path d="M 50,486 50,514 105,512 105,488 z" fill="#666666"></path>
