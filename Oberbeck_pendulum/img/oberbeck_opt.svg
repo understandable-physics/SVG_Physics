@@ -1,0 +1,66 @@
+<svg id="svg" version="1.1" viewBox="0 0 160 400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs id="defs">
+  <marker id="ArrowEnd" style="overflow:visible" orient="auto">
+   <path transform="matrix(-1.1,0,0,-1.1,-1.1,0)" d="m8.7 4-11-4 11-4c-1.7 2.4-1.7 5.6 0 8z" style="fill-rule:evenodd;stroke-linejoin:round;stroke-width:.62;stroke:#000"/>
+  </marker>
+  <marker id="ArrowStart" overflow="visible" style="overflow:visible" orient="auto">
+   <path d="m8.7 4-11-4 11-4c-1.7 2.4-1.7 5.6 0 8z" style="fill-rule:evenodd;stroke-width:.5;stroke:#000"/>
+  </marker>
+  <g id="nonius" style="fill:none;stroke-width:1px;stroke:#000">
+	<path id="milimeter" d="m0 5h5"/>
+	<path id="meter" d="m0 0h10"/>
+ </g>
+ </defs>
+ <rect id="bracketV" x="77" width="6" height="160" style="fill:#e9ddaf;stroke-width:.5px;stroke:#000"/>
+ <rect id="bracketH" y="77" width="160" height="6" style="fill:#e9ddaf;stroke-width:.5px;stroke:#000"/>
+ <rect id="m01" class="m0" x="70" y="5" width="20" height="20" ry="2" style="fill-rule:evenodd;fill:#d4ff2a;stroke:#000"/>
+ <rect id="m02" class="m0" x="135" y="70" width="20" height="20" ry="2" style="fill-rule:evenodd;fill:#d4ff2a;stroke:#000"/>
+ <rect id="m04" class="m0" x="5" y="70" width="20" height="20" ry="2" style="fill-rule:evenodd;fill:#d4ff2a;stroke:#000"/>
+ <rect id="m03" class="m0" x="70" y="135" width="20" height="20" ry="2" style="fill-rule:evenodd;fill:#d4ff2a;stroke:#000"/>
+ <circle id="bigWheel" cx="80" cy="80" r="30" style="fill:#6c5d53;stroke-width:1.5;stroke:#000"/>
+ <circle id="smallWheel" cx="80" cy="80" r="15" style="fill:#ac9d93;stroke-width:1.5;stroke:#000"/>
+ <g id="dimR">
+	<path id="dimRtop" d="m80 15h40" style="stroke-width:.5;stroke:#000"/>
+	<path id="dimRarrow" d="m115 15v65" style="marker-end:url(#ArrowEnd);marker-start:url(#ArrowStart);stroke-width:.5;stroke:#000"/>
+	<text id="dimRtxtR" x="120" y="50" letter-spacing="0px" word-spacing="0px" style="fill:#000000;font-family:sans-serif;font-feature-settings:normal;font-size:15px;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;letter-spacing:0px;line-height:1.25;word-spacing:0px">R</text>
+ </g>
+ <path id="rope" d="m110 80v100" style="fill:none;stroke-width:1.5;stroke:#000"/>
+ <rect id="plumb" x="100" y="180" width="20" height="30" style="fill-rule:evenodd;fill:#f00;paint-order:normal;stroke-linecap:square;stroke-width:1.5;stroke:#000"/>
+ <text id="plumbMtxtM" x="80" y="200" style="fill:#000000;font-family:sans-serif;font-feature-settings:normal;font-size:15px;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;letter-spacing:0px;line-height:1.25;word-spacing:0px">m</text>
+ <rect id="ruler" x="140" y="200" width="15" height="200" style="fill-rule:evenodd;fill:#fc0;paint-order:normal;stroke-linecap:square;stroke-width:1.5;stroke:#000"/>
+
+ <use x="140" y="200" xlink:href="#nonius"/>
+ <use x="140" y="210" xlink:href="#nonius"/>
+ <use x="140" y="220" xlink:href="#nonius"/>
+ <use x="140" y="230" xlink:href="#nonius"/>
+ <use x="140" y="240" xlink:href="#nonius"/>
+ <use x="140" y="250" xlink:href="#nonius"/>
+ <use x="140" y="260" xlink:href="#nonius"/>
+ <use x="140" y="270" xlink:href="#nonius"/>
+ <use x="140" y="280" xlink:href="#nonius"/>
+ <use x="140" y="290" xlink:href="#nonius"/>
+ <use x="140" y="300" xlink:href="#nonius"/>
+ <use x="140" y="310" xlink:href="#nonius"/>
+ <use x="140" y="320" xlink:href="#nonius"/>
+ <use x="140" y="330" xlink:href="#nonius"/>
+ <use x="140" y="340" xlink:href="#nonius"/>
+ <use x="140" y="350" xlink:href="#nonius"/>
+ <use x="140" y="360" xlink:href="#nonius"/>
+ <use x="140" y="370" xlink:href="#nonius"/>
+ <use x="140" y="380" xlink:href="#nonius"/>
+ <use x="140" y="390" xlink:href="#nonius"/>
+ <g id="dimH">
+ <path id="dimHtop" d="m120 210h20" style="fill:none;stroke-width:0.5;stroke:#000"/>
+ <path id="dimHdown" d="m140 400h-20" style="fill:none;stroke-width:0.5;stroke:#000"/>
+ <path id="dimHarrow" d="m130 210v190" style="fill:none;marker-end:url(#ArrowEnd);marker-start:url(#ArrowStart);stroke-width:.5;stroke:#000"/>
+ <text id="dimHtxtH" x="115" y="305" style="font-family:sans-serif;font-feature-settings:normal;font-size:15px;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;letter-spacing:0px;line-height:1.25;word-spacing:0px">h</text>
+ </g>
+ <g id="dimR1">
+	<path id="dimR1arrow" d="m40 50h10l30 30-21-21" style="fill:none;marker-end:url(#ArrowEnd);stroke-width:.5;stroke:#000"/>
+	<text id="dimR1txtR" x="40" y="48" style="font-feature-settings:normal;font-size:15px;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25">r</text>
+	<text id="dimR1txt1" x="45" y="50" style="font-feature-settings:normal;font-size:6px;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25">1</text>
+ </g>
+ <g 
+ <text id="m0txtM" x="140" y="65" style="fill:#000000;font-family:Arial;font-feature-settings:normal;font-size:15px;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;letter-spacing:0px;line-height:1.25;word-spacing:0px">m</text>
+ <text id="m0txt0" x="153" y="67" style="fill:#000000;font-family:Arial;font-feature-settings:normal;font-size:6px;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;letter-spacing:0px;line-height:1.25;word-spacing:0px">0</text>
+</svg>

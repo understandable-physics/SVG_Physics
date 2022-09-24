@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg width="800" height="600" viewBox="0 0 800 600" version="1.1" id="svg5" inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)" sodipodi:docname="template_inkscape.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
-    <sodipodi:namedview id="namedview7" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:document-units="px" showgrid="true" inkscape:zoom="19.03" inkscape:cx="38.66" inkscape:cy="14.14" inkscape:window-width="1920" inkscape:window-height="1027" inkscape:window-x="1912" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="layer1" showguides="true">
+    <sodipodi:namedview id="namedview7" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:document-units="px" showgrid="true" inkscape:zoom="2.379" inkscape:cx="149" inkscape:cy="-33.63" inkscape:window-width="1920" inkscape:window-height="1027" inkscape:window-x="1912" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="switch01" showguides="true">
         <inkscape:grid type="xygrid" id="grid132" enabled="true" />
         <sodipodi:guide position="780,580" orientation="1,0" id="guide130" inkscape:locked="false" />
         <sodipodi:guide position="780,580" orientation="0,-1" id="guide132" inkscape:locked="false" />
@@ -20,7 +20,18 @@
     </sodipodi:namedview>
     <defs id="defs2" />
     <g inkscape:label="Слой 1" inkscape:groupmode="layer" id="layer1">
-        <path id="path313" style="fill:#69306d;stroke:#69306d;stroke-width:2;stroke-dasharray:none;fill-opacity:1;stroke-opacity:1" d="M 11,1 A 10,10 0 0 0 1,11 10,10 0 0 0 11,21 H 26 A 10,10 0 0 0 36,11 10,10 0 0 0 26,1 Z" />
-        <circle style="fill:#cc5a71;fill-opacity:1;stroke:#cc5a71;stroke-width:2;stroke-dasharray:none;stroke-opacity:1" id="path1155" cx="11" cy="11" r="8" />
+        <g id="switch01" data-state="false" transform="translate(9,19)">
+            <path id="switchArea" d="M 11,1 A 10,10 0 0 0 1,11 10,10 0 0 0 11,21 H 26 A 10,10 0 0 0 36,11 10,10 0 0 0 26,1 Z" fill="#263238" stroke="#263238" />
+            <path id="switchKey" d="M 26 3 A 8 8 0 0 0 18 11 A 8 8 0 0 0 26 19 A 8 8 0 0 0 34 11 A 8 8 0 0 0 26 3 z " style="fill:#f44336;fill-opacity:1;stroke:none;stroke-opacity:1" />
+        </g>
+        <text xml:space="preserve" style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none" x="50" y="41" id="text2599"><tspan sodipodi:role="line" id="tspan2597" x="50" y="41">Текст водну строку</tspan></text>
+        <g id="switch01-3" data-state="false" transform="translate(9,99)">
+            <path id="switchArea-6" d="M 11,1 A 10,10 0 0 0 1,11 10,10 0 0 0 11,21 H 26 A 10,10 0 0 0 36,11 10,10 0 0 0 26,1 Z" fill="#263238" stroke="#263238" />
+            <circle id="switchKey-4" cx="26" cy="11" r="8" fill="#f44336" stroke="none" />
+        </g>
+        <text xml:space="preserve" style="font-style:normal;font-weight:normal;font-size:26.6667px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;-inkscape-font-specification:'sans-serif, Normal';font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal" x="50" y="96" id="text2599-7"><tspan sodipodi:role="line" x="50" y="96" id="tspan2693">Текст в</tspan><tspan sodipodi:role="line" x="50" y="146" id="tspan2697">две строки</tspan></text>
+        <rect style="fill:#f44336;stroke:#263238;stroke-width:2" id="rect315" width="40" height="40" x="35" y="165" ry="10" />
+        <path style="fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" d="M 90,165 V 185 L 110,175 Z" id="path445" />
+        <path id="rect1833" style="fill:#00ff00;fill-opacity:1;stroke:#263238;stroke-width:3;stroke-dasharray:none" d="M 45 175 L 45 195 L 52 195 L 52 175 L 45 175 z M 58 175 L 58 195 L 65 195 L 65 175 L 58 175 z " />
     </g>
 </svg>

@@ -31,10 +31,10 @@ var gProjections = SVG('#gProjections'),
     projectionZ = SVG('#projectionZ');
 
 var gCordinates = SVG('#gCordinates'),
-    coordinateX_0 = SVG('#coordinateX_0'),coordinateX_1 = SVG('#coordinateX_1'),coordinateX_2 = SVG('#coordinateX_2'),txtCoordinateX_0 = SVG('#txtCoordinateX_0'),
-    coordinateY_0 = SVG('#coordinateY_0'),coordinateY_1 = SVG('#coordinateY_1'),coordinateY_2 = SVG('#coordinateY_2'),txtCoordinateY_0 = SVG('#txtCoordinateY_0'),
-    coordinateZ_0 = SVG('#coordinateZ_0'),coordinateZ_1 = SVG('#coordinateZ_1'),coordinateZ_2 = SVG('#coordinateZ_2'),txtCoordinateZ_0 = SVG('#txtCoordinateZ_0');
-    
+    coordinateX_0 = SVG('#coordinateX_0'), coordinateX_1 = SVG('#coordinateX_1'), coordinateX_2 = SVG('#coordinateX_2'), txtCoordinateX_0 = SVG('#txtCoordinateX_0'),
+    coordinateY_0 = SVG('#coordinateY_0'), coordinateY_1 = SVG('#coordinateY_1'), coordinateY_2 = SVG('#coordinateY_2'), txtCoordinateY_0 = SVG('#txtCoordinateY_0'),
+    coordinateZ_0 = SVG('#coordinateZ_0'), coordinateZ_1 = SVG('#coordinateZ_1'), coordinateZ_2 = SVG('#coordinateZ_2'), txtCoordinateZ_0 = SVG('#txtCoordinateZ_0');
+
 var button1 = SVG('#button1'), textButton1 = SVG('#textButton1'),
     button2 = SVG('#button2'), textButton2 = SVG('#textButton2'),
     button3 = SVG('#button3'), textButton3 = SVG('#textButton3'),
@@ -200,12 +200,12 @@ valueZ.on('dragmove.namespase', e => {
 
 
 
-    button4.click(function () {
-        //toggle additionalButton4
-        //reset ppoint position
-        //disable unnecessary features
-    })
-    
+button4.click(function () {
+    //toggle additionalButton4
+    //reset ppoint position
+    //disable unnecessary features
+})
+
 /* additionalButton4.click(function () {
 
     pointA.animate(2000).during(function (eased) {
@@ -224,30 +224,44 @@ valueZ.on('dragmove.namespase', e => {
     })
 }) */
 
+function moveValues(point) {
+    valueX.plain(Math.round(vPoint.x));
+    valueY.plain(Math.round(vPoint.y));
+    valueZ.plain(Math.round(vPoint.z));
+
+    valueX.x(valueX.x() + Math.cos(rad(45)));
+    valueY.move(center.x + 10, vectorY.rbox().y - 10);
+    valueZ.x(valueZ.x() + Math.cos(rad(45)));
+}
 
 var trajectory = SVG('#trajectory')
 var trajectory_coords = `M${pointA.cx().toFixed(3)},${pointA.cy().toFixed(3)} `
 
+var markerGreenArrow = SVG('#greenArrow')
 var intervalId;
+
 additionalButton4.click(function () {
-    if (intervalId){return;}
+    cloneRadiusVector = radiusVector.clone();
+    cloneRadiusVector.attr({
+        fill: 'none',
+        stroke: '#0f0',
+        'stroke-width': 2
+    }).addTo(s);
+
+    console.log(radiusVector.reference('marker-end'))
+    //cloneRadiusVector.marker('end', 20, 20, function(add) {
+        
+    //});
+    cloneRadiusVector.marker('end', markerGreenArrow.fill('#000'))
+    console.log(markerGreenArrow)
+
+    if (intervalId) { return; }
     intervalId = setInterval(function () {
         if (vPoint.x < 230) {
             vPoint.x += Math.cos(rad(45));
             // Формула параболы по заданным координатам
             vPoint.y = (-1 * ((13 * Math.pow(vPoint.x, 2)) / 810)) + ((364 * vPoint.x) / 81) - (6850 / 81);
             vPoint.z -= (Math.cos(rad(45)));
-
-            valueX.plain(Math.round(vPoint.x));
-            valueY.plain(Math.round(vPoint.y));
-            valueZ.plain(Math.round(vPoint.z));
-
-            valueX.x(valueX.x() + Math.cos(rad(45)));
-            valueY.move(center.x + 10, vectorY.rbox().y - 10);
-            valueZ.x(valueZ.x() + Math.cos(rad(45)));
-            
-            
-
             let tX = {
                 x: Math.cos(rad(30)) * vPoint.x,
                 y: Math.sin(rad(30)) * vPoint.x
@@ -273,9 +287,14 @@ additionalButton4.click(function () {
             'stroke-dasharray': '10 5'
         });
         movePoint(vPoint)
+        moveValues(vPoint)
 
     }, 10);
 
 })
 
+additionalButton5.click(function() {
+    movePoint(vPoint)
+    moveValues(vPoint)
+})
 

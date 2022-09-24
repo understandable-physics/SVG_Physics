@@ -1,0 +1,17 @@
+#circles,
+    #pine-examples,
+    #jump-animation-start,
+    #jump-animation {
+      display: block;
+      margin: 0 auto;
+      max-width: 400px;
+      width: 100%;
+    }
+    
+    #circles {
+      max-width: 300px;
+    }
+    
+    #pine-examples {
+      margin: 20px auto;
+    }
