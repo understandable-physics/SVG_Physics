@@ -1,0 +1,16 @@
+rect.button_click {
+	stroke: none;
+	fill: plum;
+}
+rect.button_unclick {
+	stroke: black;
+	fill: yellow;
+}
+rect.button_on {
+	stroke: green;
+	fill: white;	
+}
+rect.button_off {
+	stroke: red;
+	fill: white;	
+}
