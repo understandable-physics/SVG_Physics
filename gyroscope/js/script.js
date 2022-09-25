@@ -1,6 +1,6 @@
 var s = SVG('#svg');
 
-function drawSector(x, y, radius, angle){
+function drawSector(x, y, radius, angle, color){
     let rad = (90+angle) * Math.PI / 180,
         rx = radius,
         ry = radius,
@@ -15,10 +15,12 @@ function drawSector(x, y, radius, angle){
     let sector = s.path();
     sector.attr({
         d: sectorString,
-        fill: 'red',
+        fill: color,
         stroke: '#000', 'stroke-width': 1
     });
     return sector;
 }
 //         x, y, radius, angle
-drawSector(200, 200, 100, 75)
+drawSector(200, 200, 100, 75, 'red');
+
+drawSector(200, 200, 75, 75, 'green')
