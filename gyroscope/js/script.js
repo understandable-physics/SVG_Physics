@@ -10,7 +10,12 @@ function drawSector(x, y, radius, angle) {
         dx = Math.cos(rad) * radius,
         dy = Math.sin(rad) * radius;
 
-    let sectorString = ['M', x, y, 'v', -radius, 'A', rx, ry, x_axis_rotation, large_arc_flag, sweep_flag, x - dx, y - dy, 'z'].join(' ');
+    let sectorString = [
+        'm', x, y, 
+        'v', -radius, 
+        'A', rx, ry, x_axis_rotation, large_arc_flag, sweep_flag, x - dx, y - dy, 
+        'z'
+    ].join(' ');
 
     /* let sector = s.path();
     sector.attr({
@@ -21,6 +26,14 @@ function drawSector(x, y, radius, angle) {
     return sector; */
     return sectorString;
 }
+
+let sector = SVG('#sector');
+sector.attr({
+    d: drawSector(500, 200, 150, 330),
+    fill: '#ff0',
+    stroke: '#000',
+    'stroke-width': 1
+});
 
 let sectorTik = s.path();
 let sectorTak = s.path();
