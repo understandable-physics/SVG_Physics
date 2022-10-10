@@ -31,9 +31,9 @@ var button5text = SVG('#button5text')
 var button6 = SVG('#button6')
 var button6bar = SVG('#button6bar')
 var button6text = SVG('#button6text')
-var draggline1 = SVG('#draggline1')
+var line1 = SVG('#line1')
 var draggbar1 = SVG('#draggbar1')
-var draggline2 = SVG('#draggline2')
+var line2 = SVG('#line2')
 var draggbar2 = SVG('#draggbar2')
 var dropdownmenue = SVG('#dropdownmenue')
 var dropdownmenuebackground = SVG('#dropdownmenuebackground')
@@ -53,10 +53,6 @@ var dropdownmenuebutton5bar = SVG('#dropdownmenuebutton5bar')
 var dropdownmenuebutton6bar = SVG('#dropdownmenuebutton6bar')
 var dropdownmenuebutton7bar = SVG('#dropdownmenuebutton7bar')
 var dropdownmenuebutton8bar = SVG('#dropdownmenuebutton8bar')
-var xmarker = SVG('#xmarker')
-var xmarkertext = SVG('#xmarkertext')
-var ymarker = SVG('#ymarker')
-var ymarkertext = SVG('#ymarkertext')
 var xvector = SVG('#xvector')
 var xvectortext = SVG('#xvectortext')
 var yvector = SVG('#yvector')
@@ -133,24 +129,6 @@ function Move () {
 			cx: x + vcoords.zeroxpoint,
 			cy: vcoords.zeroypoint - y
 		})
-		xmarker.attr({
-			x: x + vcoords.zeroxpoint,
-			y: vcoords.zeroypoint
-		})
-		xmarkertext.attr({
-			x: x + vcoords.zeroxpoint - 15,
-			y: vcoords.zeroypoint + 25
-		})
-		xmarkertext.tspan('X = ' + x.toFixed(0).toString())
-		ymarker.attr({
-			x: vcoords.zeroxpoint - 10,
-			y: vcoords.zeroypoint - y
-		})
-		ymarkertext.attr({
-			x: vcoords.zeroxpoint + 5,
-			y: vcoords.zeroypoint - y
-		})
-		ymarkertext.tspan('Y = ' + y.toFixed(0).toString())
 		xvector.attr({
 			x1: x + vcoords.zeroxpoint,
 			x2: x + vcoords.zeroxpoint + (Math.cos((angle * Math.PI) / 180) * v0),
@@ -220,10 +198,6 @@ function Move () {
 		setTimeout(Move, 10)
 	} else {
 		button1text.tspan('Старт')
-		xmarker.hide();
-		ymarker.hide();
-		xmarkertext.hide()
-		ymarkertext.hide()
 		t = 0.05
 		toggleevent = 0
 	}
@@ -258,6 +232,11 @@ function IncreaseAngle () {
 		angle += 1;
 		angletext.tspan(angle.toString() + ' - Кут пострілу'	)
 		gun.rotate(-1, vcoords.zeroxpoint, vcoords.zeroypoint)
+		let minx = 525
+		let maxx = 630
+		draggbar1.attr ({
+			cx : minx + (((maxx - minx)/ (maxangle - minangle) * (angle - minangle)))
+		})
 	}
 } 
 function DecreaseAngle () {
@@ -265,18 +244,33 @@ function DecreaseAngle () {
 		angle -= 1;
 		angletext.tspan(angle.toString() + ' - Кут пострілу')
 		gun.rotate(1, vcoords.zeroxpoint, vcoords.zeroypoint)
+		let minx = 525
+		let maxx = 630
+		draggbar1.attr ({
+			cx : minx + (((maxx - minx)/ (maxangle - minangle) * (angle - minangle)))
+		})
 	}
 } 
 function IncreaseSpeed () {
 	if (v0 < maxspeed) {
 		v0 += 1;
 		speedtext.tspan(v0.toString() + ' - Початкова швидкість')
+		let minx = 525
+		let maxx = 630
+		draggbar2.attr ({
+			cx : minx + (((maxx - minx)/ (maxspeed - minspeed) * (v0 - minspeed)))
+		})
 	}
 } 
 function DecreaseSpeed () {
 	if (v0 > minspeed) {
 		v0 -= 1;
 		speedtext.tspan(v0.toString() + ' - Початкова швидкість')
+		let minx = 525
+		let maxx = 630
+		draggbar2.attr ({
+			cx : minx + (((maxx - minx)/ (maxspeed - minspeed) * (v0 - minspeed)))
+		})
 	}
 } 
 function ToggleMarkers () {
@@ -306,16 +300,12 @@ function ToggleDropDownMenu () {
 button1.click(function(){
 	if (toggleevent == 0) {
 		if (togglemarkers != 0) {
-			xmarker.show();
-			ymarker.show();
-			xmarkertext.show()
-			ymarkertext.show()
 		}
 		button1text.tspan('Пауза')
 		Move()
 		projectile.show()
 	} else {
-				TogglePause()
+		TogglePause()
 		if (togglepause == 1) {
 			button1text.tspan('Старт')
 		} else {
@@ -365,11 +355,15 @@ draggbar1.on('dragmove.namespase', e => {
     let { x, y } = box
     x = Math.round(x)
     y = Math.round(y)
-	if (x > 399 && x < 491 && toggleevent == 0) {
-		while (((x - 400).toFixed(0)) < angle) {
+	let minx = 525
+	let maxx = 630
+	if (x > minx && x < maxx && toggleevent == 0) {
+		let draggshift = ((x - minx) / ((maxx - minx) / 100)).toFixed(0)
+		let dangle = (draggshift * ((maxangle - minangle) / 100)).toFixed(0)
+		while (dangle < angle) {
 			DecreaseAngle()
 		}
-		while (((x - 400).toFixed(0)) > angle) {
+		while (dangle > angle) {
 			IncreaseAngle()
 		}
 		Trajectory()
@@ -383,11 +377,15 @@ draggbar2.on('dragmove.namespase', e => {
     let { x, y } = box
     x = Math.round(x)
     y = Math.round(y)
-	if (x > 400 && x < 490 && toggleevent == 0) {
-		while (((x - 400).toFixed(0)) <= v0 - minspeed) {
+	let minx = 525
+	let maxx = 630
+	if (x > minx && x < maxx && toggleevent == 0) {
+		let draggshift = ((x - minx) / ((maxx - minx) / 100)).toFixed(0)
+		let dspeed = (draggshift * ((maxspeed - minspeed) / 100)).toFixed(0)
+		while (dspeed < v0 - minspeed) {
 			DecreaseSpeed()
 		}
-		while (((x - 400).toFixed(0) * maxspeed / 90) >= v0) {
+		while (dspeed > v0 - minspeed) {
 			IncreaseSpeed()
 		}
 		Trajectory()
@@ -436,29 +434,19 @@ dropdownmenuebutton3.click(function(){
 	ButtonSwitch(dropdownmenuebutton3bar)
 })
 dropdownmenuebutton4.click(function(){
-	ToggleMarker (xmarker)
-	ToggleMarker (xmarkertext)
+	ToggleMarker (acvector)
+	ToggleMarker (acvectortext)
 	ButtonSwitch(dropdownmenuebutton4bar)
 })
 dropdownmenuebutton5.click(function(){
-	ToggleMarker (ymarker)
-	ToggleMarker (ymarkertext)
+	ToggleMarker (atvector)
+	ToggleMarker (atvectortext)
 	ButtonSwitch(dropdownmenuebutton5bar)
 })
 dropdownmenuebutton6.click(function(){
-	ToggleMarker (acvector)
-	ToggleMarker (acvectortext)
-	ButtonSwitch(dropdownmenuebutton6bar)
-})
-dropdownmenuebutton7.click(function(){
-	ToggleMarker (atvector)
-	ToggleMarker (atvectortext)
-	ButtonSwitch(dropdownmenuebutton7bar)
-})
-dropdownmenuebutton8.click(function(){
 	ToggleMarker (avector)
 	ToggleMarker (avectortext)
-	ButtonSwitch(dropdownmenuebutton8bar)
+	ButtonSwitch(dropdownmenuebutton6bar)
 })
 
 Trajectory()
