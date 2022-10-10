@@ -1,16 +1,28 @@
 rect.button_click {
 	stroke: none;
 	fill: plum;
+	rx: 10;
+    ry: 10;	
 }
 rect.button_unclick {
 	stroke: black;
 	fill: yellow;
+	rx: 10;
+    ry: 10;	
 }
 rect.button_on {
 	stroke: green;
-	fill: white;	
+	fill: white;
+	rx: 10;
+    ry: 10;	
 }
 rect.button_off {
 	stroke: red;
-	fill: white;	
+	fill: white;
+	rx: 10;
+    ry: 10;	
+}
+rect.menue_bg {
+	rx: 10;
+    ry: 10;
 }
